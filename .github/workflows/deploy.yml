@@ -3,10 +3,10 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  
   pull_request:
     branches:
-      - main
+    - main
 
 jobs:
   deploy:
@@ -27,8 +27,16 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Commit and Deploy
+        run: |
+          git config --global user.email "asifimtiyajchowdhury@github.com"
+          git config --global user.name "asifichy"
+          git add .
+          git commit -m "Auto-deploy via GitHub Actions"
+          git push
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: /web_portfolio/
