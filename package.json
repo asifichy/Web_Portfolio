@@ -1,0 +1,19 @@
+{
+    "name": "web-portfolio",
+    "version": "1.0.0",
+    "description": "Portfolio website built with HTML, CSS, and JavaScript",
+    "main": "index.html",
+    "scripts": {
+      "start": "echo 'No start script specified'", 
+      "build": "echo 'No build script specified'"  
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/asifichy/Web_Portfolio.git"
+    },
+    "author": "Your Name",
+    "license": "MIT", 
+    "devDependencies": {},
+    "dependencies": {}
+  }
+  
