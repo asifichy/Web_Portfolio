@@ -33,7 +33,7 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: ./path/to/your/build  # Replace with your build folder
+          FOLDER: ./  # Replace with your build folder
 
       - name: Get Deployment URL
         run: echo "::set-output name=url::https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
