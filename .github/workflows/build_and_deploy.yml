@@ -3,7 +3,7 @@ name: CI/CD for Portfolio
 on:
   push:
     branches:
-      - gh-pages  # Trigger on push to main branch
+      - main  # Trigger on push to main branch
 
 jobs:
   build:
