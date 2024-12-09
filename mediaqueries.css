@@ -1,4 +1,6 @@
-@media screen and (max-width: 1400px) {
+/* Large screens (desktops, laptops) */
+@media screen and (min-width: 1200px) {
+  /* Apply styles for desktop and large devices */
   #profile {
     height: 83vh;
     margin-bottom: 6rem;
@@ -6,12 +8,13 @@
   .about-containers {
     flex-wrap: wrap;
   }
-  #contact,  #projects {
+  #contact, #projects {
     height: fit-content;
   }
 }
 
-@media screen and (max-width: 1200px) {
+/* Medium screens (tablets, smaller laptops) */
+@media screen and (max-width: 1199px) and (min-width: 992px) {
   #desktop-nav {
     display: none;
   }
@@ -43,7 +46,30 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+/* Small screens (tablets and large mobile devices) */
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  #profile {
+    height: 83vh;
+    margin-bottom: 3rem;  /* Reduced margin */
+  }
+  .about-containers {
+    flex-wrap: wrap;
+    justify-content: space-between; /* Added this for alignment */
+  }
+  .about-containers .container {
+    width: 48%;  /* More flexible for tablets */
+  }
+  .section__pic-container {
+    width: 100%;
+    height: auto;  /* Responsive images */
+  }
+  section {
+    margin: 0 3%; /* Less margin for smaller screens */
+  }
+}
+
+/* Extra small screens (portrait phones) */
+@media screen and (max-width: 767px) {
   #contact, footer {
     height: 40vh;
   }
@@ -80,8 +106,8 @@
     text-align: center;
   }
   .section__pic-container {
-    width: auto;
-    height: 46vw;
+    width: 100%;
+    height: auto;
     justify-content: center;
   }
   .section__text__p2 {
@@ -92,5 +118,60 @@
   }
   .text-container {
     text-align: justify;
+  }
+}
+
+/* Very small screens (portrait phones, narrow devices) */
+@media screen and (max-width: 480px) {
+  /* Extra fine-tuning for very small screens */
+  #profile {
+    height: 75vh;  /* Slightly adjusted for very small screens */
+    margin-bottom: 2rem;
+  }
+  .about-containers {
+    flex-direction: column;  /* Stack the containers vertically */
+    padding: 0 10px;  /* Add padding to avoid text sticking to the edge */
+  }
+  .contact-info-container {
+    margin: 1rem 0;  /* Adjust margin for contact info */
+  }
+  .nav-links li a {
+    font-size: 0.9rem;  /* Smaller font size for mobile */
+  }
+  .section__text__p2 {
+    font-size: 1rem;
+  }
+  .section__pic-container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;  /* Add bottom margin to avoid sticking */
+  }
+  .logo {
+    font-size: 1.25rem;
+  }
+  .title {
+    font-size: 1.75rem;
+  }
+  footer {
+    text-align: center;
+    padding: 1rem 0;
+  }
+}
+
+/* Very large screens (wider desktops) */
+@media screen and (min-width: 1600px) {
+  #profile {
+    height: 90vh;  /* Adjust height for wider screens */
+    margin-bottom: 8rem;
+  }
+  .about-containers {
+    margin: 0 10%;  /* Add more spacing for large displays */
+  }
+  .section__pic-container {
+    width: 350px;  /* Larger images for big screens */
+    height: 350px;
+  }
+  section {
+    margin: 0 15%;
   }
 }
