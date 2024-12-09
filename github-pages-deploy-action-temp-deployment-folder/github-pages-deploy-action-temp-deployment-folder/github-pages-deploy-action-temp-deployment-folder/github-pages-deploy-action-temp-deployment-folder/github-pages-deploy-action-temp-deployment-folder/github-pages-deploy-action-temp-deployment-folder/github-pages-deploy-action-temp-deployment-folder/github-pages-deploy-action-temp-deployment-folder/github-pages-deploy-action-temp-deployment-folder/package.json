@@ -1,0 +1,17 @@
+{
+  "name": "web-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio website built with HTML, CSS, and JavaScript",
+  "scripts": {
+    "start": "echo 'No start script specified'",
+    "build": "echo 'No build script specified'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asifichy/Web_Portfolio.git"
+  },
+  "author": "Md. Asif Imtiyaj Chowdhury",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
