@@ -50,7 +50,7 @@
 @media screen and (max-width: 991px) and (min-width: 768px) {
   #profile {
     height: 83vh;
-    margin-bottom: 3rem;  /* Reduced margin */
+    margin-bottom: 3rem; /* Reduced margin */
   }
   .about-containers {
     flex-wrap: wrap;
@@ -75,10 +75,11 @@
   }
   #profile {
     height: 83vh;
-    margin-bottom: 0;
+    margin-bottom: 2rem; /* Added margin */
   }
   article {
     font-size: 1rem;
+    width: 100%; /* Full width */
   }
   footer nav {
     height: fit-content;
