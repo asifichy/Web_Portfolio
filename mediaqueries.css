@@ -6,7 +6,8 @@
   .about-containers {
     flex-wrap: wrap;
   }
-  #contact,  #projects {
+  #contact,
+  #projects {
     height: fit-content;
   }
 }
@@ -18,16 +19,19 @@
   #hamburger-nav {
     display: flex;
   }
-  #experience, .experience-details-container {
+  #experience,
+  .experience-details-container {
     margin-top: 2rem;
   }
-  #profile, .section-container {
+  #profile,
+  .section-container {
     display: block;
   }
   .arrow {
     display: none;
   }
-  section, .section-container {
+  section,
+  .section-container {
     height: fit-content;
   }
   section {
@@ -44,7 +48,8 @@
 }
 
 @media screen and (max-width: 600px) {
-  #contact, footer {
+  #contact,
+  footer {
     height: 40vh;
   }
   #profile {
@@ -58,7 +63,9 @@
     height: fit-content;
     margin-bottom: 2rem;
   }
-  .about-containers, .contact-info-upper-container, .btn-container {
+  .about-containers,
+  .contact-info-upper-container,
+  .btn-container {
     flex-wrap: wrap;
   }
   .contact-info-container {

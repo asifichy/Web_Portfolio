@@ -5,7 +5,7 @@
 Download PDF resume
 
 
-https://github.com/asifichy/Web_Portfolio/blob/main/Portfolio/Asif_Imtiyaj_Chowdhury_Resume_Cloud_DevOps.pdf
+https://github.com/asifichy/Web_Portfolio/blob/main/Portfolio/Asif_Imtiyaj_Chowdhury_Resume_DevOps.pdf
 
 
 
