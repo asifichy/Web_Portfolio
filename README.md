@@ -1,7 +1,6 @@
 # Web_Portfolio
 
 
-
 Download PDF resume
 
 
@@ -9,10 +8,6 @@ https://github.com/asifichy/Web_Portfolio/blob/main/Portfolio/Asif_Imtiyaj_Chowd
 
 
 
-
-# Live Portfolio Site -
-
+## Live Portfolio Site
 
 https://asifimtiyajchowdhuryportfolio.netlify.app/
-
-
