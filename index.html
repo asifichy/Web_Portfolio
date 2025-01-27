@@ -2,693 +2,404 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Asif's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+    <script src="script.js"></script>
+    <link rel="icon" href="./images/favicon-1.png" type="images/png" />
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">Md. Asif Imtiyaj Chowdhury</div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
+    <!-- Header Section -->
+    <header>
+      <a href="#" class="logo-holder">
+        <div class="logo">L</div>
+        <div class="logo-text">Portfolio Website</div>
+      </a>
+      <nav>
+        <ul id="menu">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#work">Work Experience</a>
+          </li>
+          <li>
+            <a href="#skills">Skills</a>
+          </li>
+          <li>
+            <a href="#projects">Projects</a>
+          </li>
+          <li>
+            <a href="mailto:asifimtiyajchowdhury@gmail.com" class="button"
+              >Contact Me</a
+            >
+          </li>
         </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Md. Asif Imtiyaj Chowdhury</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
+        <a href="#" class="mobile-toggle" onClick="toggleMobileMenu();">
+          <svg
+            class="w-6 h-6 text-gray-800 dark:text-white"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-width="2"
+              d="M5 7h14M5 12h14M5 17h10"
+            />
+          </svg>
+        </a>
+      </nav>
+    </header>
 
-    <!--profile section-->
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assets/niloy_profile_picture.png" alt="Md. Asif Imtiyaj Chowdhury's profile picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p>
-        <h1 class="title">Md. Asif Imtiyaj Chowdhury</h1>
-        <p class="section__text__p2">Cloud Solution Architect | DevOps Engineer | Web Developer | Mobile App Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./Portfolio/Asif_Imtiyaj_Chowdhury_Resume_DevOps.pdf')">
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
+    <!-- Hero Section -->
+    <main>
+      <section class="hero container">
+        <!-- Hero Text -->
+        <div class="hero-blue">
+          <div>
+            <h1>
+              <small>Hi, I'm</small>
+              Md. Asif Imtiyaj Chowdhury
+            </h1>
+            <p>
+              A Software Engineer focused in Cloud Computing, DevOps, Web
+              Development, Project Management, and Research.
+              <span>
+                I'm interested in IaC, containerization, orchestration, and
+                automation tools.
+              </span>
+            </p>
+
+            <!-- Call to Action -->
+            <div class="call-to-action">
+              <a
+                href="./resume/Asif_Imtiyaj_Chowdhury_Resume.pdf"
+                class="button black"
+              >
+                View Resume
+              </a>
+              <a
+                href="mailto:asifimtiyajchowdhury@gmail.com"
+                class="button white"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+          <!-- Social Links -->
+          <div class="social-links">
+            <a href="#">
+              <img src="./images/github.png" alt="Github" width="48px" />
+            </a>
+            <a href="#">
+              <img src="./images/linkedin.png" alt="LinkedIn" width="48px" />
+            </a>
+          </div>
         </div>
-        <div id="socials-container">
+
+        <!-- Hero Image -->
+        <div class="hero-yellow">
           <img
-            src="./assets/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="window.open('https://www.linkedin.com/in/md-asif-imtiyaj-chowdhury-7945a11b3/', '_blank')"/>
-          <img
-            src="./assets/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="window.open('https://github.com/asifichy', '_blank')"/>
-        </div>
-      </div>
-    </section>
-    
-    <!--about section-->
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/niloy2_b&w.png"
-            alt="Profile picture"
-            class="about-pic"
+            src="./images/pic without bg.png"
+            alt="Asif Imtiyaj Chowdhury"
+            width="100%"
           />
         </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>2+ years <br/>Web Development  Mobile Application Development  Software Quality Testing</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>1 year <br/>Cloud Solution Architect <br> at Huawei</p>
-            </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"/>
-              <h3>Education</h3>
-              <p>B.Sc. in Computer Science and Engineering 
-                <br><br> Major in Software Engineering</p>
-            </div>
+      </section>
+
+      <!-- logo Section -->
+      <section class="logos container">
+        <div class="marquee">
+          <div class="track">
+            <img src="./images/docker.png" alt="docker" width="80px" />
+            <img src="./images/kubernetes.png" alt="kubernetes" width="80px" />
+            <img src="./images/terraform.png" alt="terraform" width="80px" />
+            <img src="./images/ansible.png" alt="ansible" width="80px" />
+            <img src="./images/git.png" alt="git" width="80px" />
+            <img src="./images/github.png" alt="github" width="80px" />
+            <img src="./images/gitlab.png" alt="gitlab" width="80px" />
+            <img src="./images/bash.png" alt="bash" width="80px" />
+            <img src="./images/jenkins.png" alt="jenkins" width="80px" />
+            <img src="./images/grafana.png" alt="grafana" width="80px" />
+            <img src="./images/prometheus.png" alt="prometheus" width="80px" />
+            <img src="./images/linux.png" alt="linux" width="80px" />
+            <img src="./images/aws.png" alt="aws" width="80px" />
+            <img src="./images/huawei.png" alt="huaweicloud" width="80px" />
+            <img src="./images/letter-c.png" alt="c" width="80px" />
+            <img src="./images/c++.png" alt="c++" width="80px" />
+            <img src="./images/java.png" alt="java" width="80px" />
+            <img src="./images/python.png" alt="python" width="80px" />
+            <img src="./images/php.png" alt="php" width="80px" />
+            <img src="./images/dart.png" alt="dart" width="80px" />
+            <img src="./images/html.png" alt="html" width="80px" />
+            <img src="./images/css.png" alt="css" width="80px" />
+            <img src="./images/js.png" alt="js" width="80px" />
+            <img src="./images/react.png" alt="react" width="80px" />
+            <img src="./images/node-js.png" alt="node" width="80px" />
+            <img src="./images/nextjs.png" alt="nextjs" width="80px" />
+            <img src="./images/android.png" alt="android" width="80px" />
+            <img src="./images/flutter.png" alt="flutter" width="80px" />
+            <img src="./images/mysql.png" alt="mysql" width="80px" />
+            <img src="./images/mongodb.png" alt="mongodb" width="80px" />
+            <img src="./images/SQLite.png" alt="sqlite" width="80px" />
+            <img src="./images/oracle.png" alt="oracle" width="80px" />
+            <img src="./images/selenium.png" alt="selenium" width="80px" />
+            <img src="./images/arduino.png" alt="arduino" width="80px" />
+
+            <!-- Duplicated Images -->
+            <img src="./images/docker.png" alt="docker" width="80px" />
+            <img src="./images/kubernetes.png" alt="kubernetes" width="80px" />
+            <img src="./images/terraform.png" alt="terraform" width="80px" />
+            <img src="./images/ansible.png" alt="ansible" width="80px" />
+            <img src="./images/git.png" alt="git" width="80px" />
+            <img src="./images/github.png" alt="github" width="80px" />
+            <img src="./images/gitlab.png" alt="gitlab" width="80px" />
+            <img src="./images/bash.png" alt="bash" width="80px" />
+            <img src="./images/jenkins.png" alt="jenkins" width="80px" />
+            <img src="./images/grafana.png" alt="grafana" width="80px" />
+            <img src="./images/prometheus.png" alt="prometheus" width="80px" />
+            <img src="./images/linux.png" alt="linux" width="80px" />
+            <img src="./images/aws.png" alt="aws" width="80px" />
+            <img src="./images/huawei.png" alt="huaweicloud" width="80px" />
+            <img src="./images/letter-c.png" alt="c" width="80px" />
+            <img src="./images/c++.png" alt="c++" width="80px" />
+            <img src="./images/java.png" alt="java" width="80px" />
+            <img src="./images/python.png" alt="python" width="80px" />
+            <img src="./images/php.png" alt="php" width="80px" />
+            <img src="./images/dart.png" alt="dart" width="80px" />
+            <img src="./images/html.png" alt="html" width="80px" />
+            <img src="./images/css.png" alt="css" width="80px" />
+            <img src="./images/js.png" alt="js" width="80px" />
+            <img src="./images/react.png" alt="react" width="80px" />
+            <img src="./images/node-js.png" alt="node" width="80px" />
+            <img src="./images/nextjs.png" alt="nextjs" width="80px" />
+            <img src="./images/android.png" alt="android" width="80px" />
+            <img src="./images/flutter.png" alt="flutter" width="80px" />
+            <img src="./images/mysql.png" alt="mysql" width="80px" />
+            <img src="./images/mongodb.png" alt="mongodb" width="80px" />
+            <img src="./images/SQLite.png" alt="sqlite" width="80px" />
+            <img src="./images/oracle.png" alt="oracle" width="80px" />
+            <img src="./images/selenium.png" alt="selenium" width="80px" />
+            <img src="./images/arduino.png" alt="arduino" width="80px" />
           </div>
-          <div class="text-container">
-            <p>
-              Currently I'm working as a cloud Solution Architect at Huawei Technologies Bangladesh, South-Asia Cloud 
-              Businees, and Software Engineer (web) at Hexen. 
-              <br>I have completed my B.Sc. in Computer Science and Engineering from East West University. 
-              My expertise areas are web development, cloud solution architect, mobile application development, 
-              and software quality testing. I have strong experience in leadership and also as a Team Player. 
-              <br>I have two on going research on IoT based device and E-waste management. I have contributed my 
-              knowledge in multiple projects and a team leader and project coordinator.
+        </div>
+      </section>
+
+      <!-- Work Experience Section -->
+      <section id="work" class="work-experience container">
+        <h2>
+          <small>Recent</small>
+          Work Experience
+        </h2>
+        <div class="jobs">
+          <!-- Experience 1 -->
+          <article>
+            <figure>
+              <div>
+                <img src="./images/docker.png" alt="workplace" width="100%" />
+              </div>
+            </figure>
+            <h3>Flagship</h3>
+            <figcaption>DevOps Engineer</figcaption>
+            <div>2025 - Present</div>
+            <p>Description</p>
+          </article>
+          <!-- Experience 2 -->
+          <article>
+            <figure>
+              <div>
+                <img src="./images/docker.png" alt="workplace" width="100%" />
+              </div>
+            </figure>
+            <h3>Huawei Technologies</h3>
+            <figcaption>Cloud Service Engineer</figcaption>
+            <div>2024 - 2024</div>
+            <p>Description</p>
+          </article>
+          <!-- Experience 3 -->
+          <article>
+            <figure>
+              <div>
+                <img src="./images/docker.png" alt="workplace" width="100%" />
+              </div>
+            </figure>
+            <h3>Hexen</h3>
+            <figcaption>Software Engineer Intern (Web)</figcaption>
+            <div>2024 - 2024</div>
+            <p>Description</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="skills container">
+        <h2>
+          <small>About ME</small>
+          Skills
+        </h2>
+        <div class="holder-blue">
+          <div class="left-column">
+            <h3>DevOps Skills</h3>
+            <ul>
+              <li>Docker</li>
+              <li>Kubernetes</li>
+              <li>Terraform</li>
+              <li>Ansible</li>
+              <li>Git</li>
+              <li>Github</li>
+              <li>Gitlab</li>
+              <li>bash</li>
+              <li>Jenkins</li>
+              <li>Grafana</li>
+              <li>Prometheus</li>
+            </ul>
+            <h3>Cloud Platforms</h3>
+            <ul>
+              <li>Huawei Cloud</li>
+              <li>AWS</li>
+            </ul>
+            <h3>OS</h3>
+            <ul>
+              <li>Linux</li>
+              <li>Windows</li>
+            </ul>
+            <h3>Frontend Skills</h3>
+            <ul>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>React</li>
+              <li>Next.js</li>
+            </ul>
+          </div>
+          <div class="right-column">
+            <h3>A bit about me</h3>
+            <p>Hi! I'm a dedicated and versatile professional with a strong foundation in computer science and engineering, 
+              holding a B.Sc. from East West University (EWU). With a passion for innovation and efficiency, I 
+              specialize in creating scalable and optimized solutions that align with modern technology trends.
             </p>
+            <br>
+            <p>My skill set combines technical expertise in automation, cloud technologies, and web development with 
+              essential soft skills like communication, teamwork, and leadership. These strengths enable me to thrive 
+              in collaborative environments, solve complex challenges, and drive projects toward success.
+            </p>
+            <br>
+            <p>
+              I’m committed to continuous learning and adapting to evolving technologies, which has helped me stay ahead in 
+              delivering impactful results. Whether working independently or within a team, I bring creativity, 
+              problem-solving, and a solution-oriented mindset to every endeavor.
+            </p> 
+            
           </div>
         </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"/>
-    </section>
+      </section>
 
-    <!--experience section-->
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <!--web dev container-->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Front-end Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>SASS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>ReactJS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>NodeJS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>Material UI</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>XAMPP</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-            </div>
+      <!-- Projects Section -->
+      <section id="projects" class="bento container">
+        <h2>
+          <small>Previous</small>
+          Completed Projects
+        </h2>
+        <div class="bento-grid">
+          <a href="#" class="bento-item">
+            <img src="./imgs/bento-1.jpg" alt="BGCCI" width="100%" />
+          </a>
+          <a href="#" class="bento-item">
+            <img src="./imgs/bento-2.jpg" alt="Churhview" width="100%" />
+          </a>
+          <a href="#" class="bento-item">
+            <img src="./imgs/bento-3.jpg" alt="Harley" width="100%" />
+          </a>
+          <a href="#" class="bento-item">
+            <img src="./imgs/bento-5.jpg" alt="Bunbury" width="100%" />
+          </a>
+          <a href="#" class="bento-item">
+            <img src="./imgs/bento-6.jpg" alt="Running" width="100%" />
+          </a>
+          <a href="#" class="bento-item">
+            <img src="./imgs/bento-7.jpg" alt="School" width="100%" />
+          </a>
+        </div>
+      </section>
+
+      <!-- Chatbot Section -->
+      <section class="chatbot container">
+        <h2>
+          <small> Talk with me </small>
+          Chatbot
+        </h2>
+        <div class="chatbot-blue">
+          <div class="chat-info">
+            <h3>Azure AI Chatbot</h3>
+            <p>
+              I have put together a chatbot here which knows all my skills, work
+              experience, projects, and has a copy of my Resume. You can use it
+              to ask questions about me to get better idea of who I am and what
+              I've done. So, feel free to ask anything to the chatbot
+            </p>
+            <p></p>
+            <a
+              href="./resume/Asif_Imtiyaj_Chowdhury_Resume.pdf"
+              class="button black"
+              >Download Resume</a
+            >
           </div>
-          <!--cloud engineering-->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Cloud</h2>
-            <div class="article-container"> 
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>Huawei Cloud</h3>
-                  <p>Intermediate</p>
-                  <span>Public Cloud</span>
-                  <p>Intermediate</p>
-                  <span>Private Cloud</span>
-                  <p>Beginner</p>                  
-                </div>
-              </article>   
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>Cloud Tools</h3>
-                  <h4>Docker</h4> 
-                  <p>Intermediate</p>                  
-                  <h4>Kubernates</h4> 
-                  <p>Intermediate</p>
-                  <h4>Terraform</h4> 
-                  <p>Intermediate</p>
-                  <h4>Grafana</h4> 
-                  <p>Intermediate</p>
-                  <h4>Prometheus</h4> 
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <div style="padding-left: -10px;">
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"/>
-                  <div>
-                    <h3>AWS</h3>
-                    <p>Intermediate</p>
+          <div class="chat-box">
+            <div class="scroll-area">
+              <ul id="chat-log">
+                <li>
+                  <span class="avatar bot">AI</span>
+                  <div class="message">
+                    Hi, I'm a friendly chatbot that lets you interactive with
+                    Asif's portfolio and CV. How can I help?
                   </div>
-                </article>
-              </div>      
-            </div>
-          </div>
-          <!--mobile app container-->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Mobile Application Development</h2>
-            <div class="article-container"> 
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>Android (Java)</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>   
-              <div style="padding-left: -10px;">
-                <article>
-                  <img
-                    src="./assets/checkmark.png"
-                    alt="Experience icon"
-                    class="icon"/>
-                  <div>
-                    <h3>Flutter</h3>
-                    <p>Intermediate</p>
+                </li>
+                <li>
+                  <span class="avatar user">User</span>
+                  <div class="message">
+                    I have a question to ask you about this resume
                   </div>
-                </article>
-              </div>      
+                </li>
+              </ul>
             </div>
-          </div>
-          <!--sqa container-->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Software Quality Testing </h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>Selenium (w/Java)</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"/>
-                <div>
-                  <h3>Selenium (w/Java)</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
+            <div class="chat-message">
+              <input
+                type="text"
+                placeholder="Hey Asif, what skills are you best at?"
+              />
+              <button class="button black">Send</button>
             </div>
           </div>
         </div>
-      </div>
-      <!--Skills-->
-      <h1 class="title nes-pad" >Skills</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <!--Programming language skills-->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Programming Languages</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>C</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>C++</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Python</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Java</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>PHP</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Intermeidate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Dart</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <!--DB skills-->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Database</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>MySQL</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>SQLite</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Oracle</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>MongoDB</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <!--Cloud skills-->
-          <div class="details-container">
-            <h2 class="experience-sub-title">Cloud</h2>
-            <div class="article-container">
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Linux</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Terraform</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Ansible</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Docker</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Kubernetes</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Containerization</h3>
-                  <p>Beginner</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Grafana</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Prometheus</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Git</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>Git Action</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img src="./assets/checkmark.png" alt="Experience icon" class="icon">
-                <div>
-                  <h3>CI/CD Pipeline</h3>
-                  <p>Beginner</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"/>
-    </section>
+      </section>
 
-    <!--projects section-->
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project_1.png"
-                alt="Project 1"
-                class="project-img"/>
-            </div>
-            <h2 class="experience-sub-title project-title">Quizzler <br> (A Quiz App)</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/asifichy/Android_QuizApp'">
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/asifichy'">
-                Live Demo
-              </button>
-            </div>
+      <!-- Footer Section -->
+      <footer>
+        <nav>
+          <div class="nav-links-container">
+            <ul id="menu" class="nav-links">
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#work">Work Experience</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+            </ul>
           </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project_2.jpg"
-                alt="Project 2"
-                class="project-img"/>
-            </div>
-            <h2 class="experience-sub-title project-title">Event Management App</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/asifichy/Android_Event_Management_App'">
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/asifichy'">
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project_3.png"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Contact App</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/asifichy/Anndroid_Contact_Form'">
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://user-images.githubusercontent.com/68398397/272071557-d5d9c9ff-b944-43de-a999-4fd7f56fe585.mp4'">
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project_4.jpg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">The Grind Cafe</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/asifichy/web-app-online-cafe-shop-management-system'">
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://user-images.githubusercontent.com/68398397/272093745-1701aa83-338d-45f1-a395-0def79ae478a.mp4'">
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assets/project-3.png"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Website Testing <br> (The Grind Cafe)</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/asifichy/AutomatedTesting_Website_Testing'">
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/asifichy/AutomatedTesting_Website_Testing/blob/main/README.md'" >
-                Live Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-    </section>
-
-    <!--contact section-->
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assets/telephone.jpg"
-            alt="Telephone icon"
-            class="icon contact-icon email-icon"/>
-          <p><a href="tel:+8801748298776">Mobile</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"/>
-          <p><a href="mailto:asifimtiyajchowdhury@gmail.com" target="_blank">Email</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"/>
-          <p><a href="https://www.linkedin.com/in/md-asif-imtiyaj-chowdhury-7945a11b3/">LinkedIn</a></p>
-        </div>
-        <div class="contact-info-container">
-          <img
-            src="./assets/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"/>
-          <p><a href="https://www.facebook.com/asif.niloy.714/">Facebook</a></p>
-        </div>
-      </div>
-    </section>
-    <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-      <p>Copyright &#169; 2023 Md. Asif Imtiyaj Chowdhury. All Rights Reserved.</p>
-    </footer>
-    <script src="script.js"></script>
+        </nav>
+        <p>
+          Copyright &#169; 2023 Md. Asif Imtiyaj Chowdhury. All Rights Reserved.
+        </p>
+      </footer>
+    </main>
   </body>
 </html>
