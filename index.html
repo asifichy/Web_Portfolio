@@ -27,6 +27,9 @@
             <a href="#skills">Skills</a>
           </li>
           <li>
+            <a href="#work">Work Experience</a>
+          </li>
+          <li>
             <a href="#projects">Projects</a>
           </li>
           <li>
@@ -63,10 +66,10 @@
 
             <!-- Call to Action -->
             <div class="call-to-action">
-              <a href="#" class="button black">
+              <a href="./resume/Asif_Imtiyaj_Chowdhury_Resume.pdf" class="button black">
                 View Resume
               </a>
-              <a href="#" class="button white">
+              <a href="mailto:asifimtiyajchowdhury@gmail.com" class="button white">
                 Contact Me
               </a>
             </div>
@@ -167,7 +170,7 @@
        </section>
 
        <!-- Skills Section -->
-        <section class="skills container">
+        <section id="skills" class="skills container">
           <h2 >
             <small>About ME</small>
             Skills
@@ -216,7 +219,7 @@
         </section>
 
         <!-- Work Experience Section -->
-        <section class="work-experience container">
+        <section id="work" class="work-experience container">
           <h2>
             <small>Recent</small>
               Work Experience
@@ -294,6 +297,50 @@
               </a>
             </div>
          </section>
+
+         <!-- Chatbot Section -->
+          <section class="chatbot container">
+            <h2>
+              <small>
+                Talk with me
+              </small>
+              Chatbot
+            </h2>
+            <div class="chatbot-blue">
+              <div class="chat-info">
+                <h3>Azure AI Chatbot</h3>
+                <p>I have put together a chatbot here which knows all my skills,
+                  work experience, projects, and has a copy of my Resume. You can use it to ask questions about me
+                  to get better idea of who I am and what I've done.
+                  So, feel free to ask anything to the chatbot
+                </p>
+                <p></p>
+                <a href="./resume/Asif_Imtiyaj_Chowdhury_Resume.pdf" class="button black">Download Resume</a>
+              </div>
+              <div class="chat-box">
+                <div class="scroll-area">
+                  <ul id="chat-log">
+                    <li>
+                      <span class="avatar bot">AI</span>
+                      <div class="message">
+                        Hi, I'm a friendly chatbot that lets you interactive with Asif's portfolio and CV. How can I help?
+                      </div>
+                    </li>
+                    <li>
+                      <span class="avatar user">User</span>
+                      <div class="message">
+                        I have a question to ask you about this resume
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="chat-message">
+                  <input type="text" placeholder="Hey Asif, what skills are you best at?">
+                  <button class="button black">Send</button>
+                </div>
+              </div>
+            </div>
+          </section>
     </main>
   </body>
 </html>
