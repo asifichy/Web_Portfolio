@@ -1,6 +1,10 @@
+import ThemeToggler from "./ThemeToggler";
+
 const header = () => {
   return (
-    <header>header</header>
+    <header>
+        <ThemeToggler/> 
+    </header>
   )
 }
 
