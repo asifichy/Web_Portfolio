@@ -9,7 +9,7 @@ const links = [
 ];
 
 const Nav = ({ containerStyles, linkStyles, underlineStyles }) => {
-  const pathname = usePathname();
+  const path = usePathname();
   return (
     <nav className={`${containerStyles}`}>
       {links.map((link, index) => {
