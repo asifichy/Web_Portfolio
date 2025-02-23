@@ -9,11 +9,11 @@ const useScrollProgress = () => {
       const scrollHeight = document.body.scrollHeight - window.innerHeight;
 
       if (scrollHeight) {
-        setCompletion(Math.round((currentProgress / scrollHeight) * 100)); // ✅ Fixed calculation
+        setCompletion(Math.round((currentProgress / scrollHeight) * 100)); // Fixed calculation
       }
     };
 
-    window.addEventListener("scroll", updateScrollCompletion); // ✅ Fixed `window`
+    window.addEventListener("scroll", updateScrollCompletion); // Fixed `window`
 
     return () => {
       window.removeEventListener("scroll", updateScrollCompletion);
