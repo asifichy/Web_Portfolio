@@ -14,7 +14,7 @@ const useScrollProgress = () => {
     };
 
     window.addEventListener("scroll", updateScrollCompletion); // ✅ Fixed `window`
-    
+
     return () => {
       window.removeEventListener("scroll", updateScrollCompletion);
     };
