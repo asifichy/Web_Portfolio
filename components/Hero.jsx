@@ -15,7 +15,7 @@ import Socials from "./Socials";
 
 const Hero = () => {
   return (
-    <section className="py-12 xl:py-24 h-[84vh] xh:pt-28 bg-hero bg-no-repeat ng-bottom dark:bg-none">
+    <section className="py-12 xl:py-24 h-[90vh] xh:pt-28 bg-hero bg-no-repeat bg-bottom dark:bg-none">
       <div className="container mx-auto">
         <div className="flex justify-between gap-x-8">
           {/* text */}
@@ -78,7 +78,7 @@ const Hero = () => {
             />
           </div>
         </div>
-        {/* icon */}
+        {/* arrowdown */}
         <div className="hidden md:flex absolute left-2/4 bottom-44 xl:bottom-12 animate-bounce">
           <RiArrowDownSLine className="text-3xl text-primary" />
         </div>
