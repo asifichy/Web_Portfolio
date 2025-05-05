@@ -12,7 +12,8 @@ import {
   Briefcase,
   PhoneCall,
   Home,
-  University
+  University,
+  Table
 } from "lucide-react";
 
 const infoData = [
@@ -126,7 +127,38 @@ const About = () => {
   return (
     <section>
       <div className="container mx-auto">
-        <h2 className="section-title mt-5 mb-8 xl:mb-16 text-center mx-auto">About me</h2>
+        <h2 className="section-title mt-5 mb-8 xl:mb-16 text-center mx-auto">
+          About me
+        </h2>
+        <div className="flex flex-col xl:flex-row">
+          {/* image */}
+          <div>
+            <DevImg
+              containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative"
+              imgSrc="/about/self_picture.png"
+            />
+          </div>
+          {/* tabs */}
+          <div className="flex-1">
+            <Tabs defaultValue="personal">
+              <TabsList>
+                <TabsTrigger value="personal">Personal Info</TabsTrigger>
+                <TabsTrigger value="qualification">Qualification</TabsTrigger>
+                <TabsTrigger value="skills">Skills</TabsTrigger>
+              </TabsList>
+              {/* tabs content */}
+              <div className="text-lg mt-12 xl:mt-8">
+                {/* persoanl */}
+                <TabsContent value="personal">Personal Info</TabsContent>
+                <TabsContent value="qualification">
+                  Qualification Info
+                </TabsContent>
+                <TabsContent value="skills">Skills</TabsContent>
+                <TabsContent></TabsContent>
+              </div>
+            </Tabs>
+          </div>
+        </div>
       </div>
     </section>
   );
