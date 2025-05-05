@@ -12,7 +12,7 @@ const Badge = ({ containerStyles, icon, endCountNum, endCountText, badgeText }) 
           <CountUp end={endCountNum} delay={1} duration={4} />
           {endCountText}
         </div>
-        <div className="max-w-[70px] leading-non text-[15px] font-medium text-base">
+        <div className="max-w-[70px] leading-non text-[15px] font-medium text-black">
           {badgeText}
         </div>
       </div>
