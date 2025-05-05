@@ -141,7 +141,7 @@ const About = () => {
           {/* tabs */}
           <div className="flex-1">
             <Tabs defaultValue="personal">
-              <TabsList>
+              <TabsList className='w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none'>
                 <TabsTrigger value="personal">Personal Info</TabsTrigger>
                 <TabsTrigger value="qualification">Qualification</TabsTrigger>
                 <TabsTrigger value="skills">Skills</TabsTrigger>
