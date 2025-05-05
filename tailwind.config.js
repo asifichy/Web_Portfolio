@@ -35,7 +35,7 @@ export default {
           foreground: "hsl(var(--secondary-foreground))"
         },
         tertiary: {
-          DEFAULT: "hsl(var(--tertiary))",
+          DEFAULT: "hsl(var(--tertiary))"
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",
@@ -81,9 +81,11 @@ export default {
       },
       backgroundImage: {
         hero: "url(/hero/hero-bg.png)",
-		hero_shape: "url(/hero/shape-1.svg)",
-		hero_shape2_light: "url(/hero/shape-2-light.svg)",
-		hero_shape2_dark: "url(/hero/shape-2-dark.svg)",
+        hero_shape: "url(/hero/shape-1.svg)",
+        hero_shape2_light: "url(/hero/shape-2-light.svg)",
+        hero_shape2_dark: "url(/hero/shape-2-dark.svg)",
+        dots_light: "url(/work/dots-light.svg)",
+        dots_dark: "url(/work/dots-dark.svg)"
       }
     }
   },
