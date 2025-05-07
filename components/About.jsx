@@ -29,10 +29,10 @@ const infoData = [
     icon: <MailIcon size={20} />,
     text: "asifimtiyajchowdhury@gmail.com"
   },
-  {
-    icon: <Calendar size={20} />,
-    text: "Born on 28 July, 2000"
-  },
+  // {
+  //   icon: <Calendar size={20} />,
+  //   text: "Born on 28 July, 2000"
+  // },
   {
     icon: <GraduationCap size={20} />,
     text: "B.Sc in Computer Science and Engineering"
@@ -141,20 +141,59 @@ const About = () => {
           {/* tabs */}
           <div className="flex-1">
             <Tabs defaultValue="personal">
-              <TabsList className='w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none'>
-                <TabsTrigger value="personal">Personal Info</TabsTrigger>
-                <TabsTrigger value="qualification">Qualification</TabsTrigger>
-                <TabsTrigger value="skills">Skills</TabsTrigger>
+              <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none ml-40">
+                <TabsTrigger className="w-[162px] xl:w-auto" value="personal">
+                  Personal Info
+                </TabsTrigger>
+                <TabsTrigger
+                  className="w-[162px] xl:w-auto"
+                  value="qualification"
+                >
+                  Qualification
+                </TabsTrigger>
+                <TabsTrigger className="w-[162px] xl:w-auto" value="skills">
+                  Skills
+                </TabsTrigger>
               </TabsList>
               {/* tabs content */}
               <div className="text-lg mt-12 xl:mt-8">
-                {/* persoanl */}
-                <TabsContent value="personal">Personal Info</TabsContent>
-                <TabsContent value="qualification">
-                  Qualification Info
+                {/* persoanl info */}
+                <TabsContent value="personal">
+                  <div className="ml-40">
+                    <h3 className="h3 mb-4">Experience of 2 Years</h3>
+                    <p className="subtitle max-w-xl max-auto xl:mx-0">
+                      I'm expeirenced with Cloud and Devops also in Web
+                      Technologies
+                    </p>
+                    {/* icons */}
+                    <div className="grid xl:grid-cols-2 gap-4 mb-12">
+                      {infoData.map((item, index) => {
+                        return (
+                          <div
+                            className="flex items-center gap-x-4 mx-auto xl:mx-0"
+                            key={index}
+                          >
+                            <div className="text-primary">
+                              {item.icon}
+                            </div>
+                            <div>
+                              {item.text}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
                 </TabsContent>
-                <TabsContent value="skills">Skills</TabsContent>
-                <TabsContent></TabsContent>
+                {/* qualification info */}
+                <TabsContent value="qualification">
+                  <div className="ml-40">Qualification Info</div>
+                </TabsContent>
+                {/* skill info */}
+                <TabsContent value="skills">
+                  <div className="ml-40">Skills</div>
+                </TabsContent>
+                <TabsContent />
               </div>
             </Tabs>
           </div>
