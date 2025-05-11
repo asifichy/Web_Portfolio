@@ -87,22 +87,48 @@ const skillData = [
     title: "skills",
     data: [
       {
-        name: "AWS, Huawei Cloud, GCP"
+        name: "Cloud & DevOps",
+        items: [
+          "AWS",
+          "Huawei Cloud",
+          "GCP",
+          "Linux System Administration",
+          "Server Configuration",
+          "Docker",
+          "Kubernetes",
+          "Terraform",
+          "Jenkins",
+          "Monitoring"
+        ]
       },
       {
-        name: "Cloud"
+        name: "Web Development",
+        items: [
+          "HTML",
+          "CSS",
+          "React",
+          "Next.js",
+          "Node.js",
+          "JavaScript",
+          "PHP"
+        ]
       },
       {
-        name: "HTML, CSS, Tailwind"
+        name: "Database",
+        items: ["MySQL", "MongoDB", "SQLite", "Oracle"]
+      }
+    ]
+  },
+  {
+    title: "programming",
+    data: [
+      {
+        name: "Programming Languages",
+        items: ["C", "C++", "Java", "Python", "JavaScript", "PHP"]
       },
       {
-        name: "Frontend Development"
-      },
-      {
-        name: "Javascript, React, Next.js"
-      },
-      {
-        name: "Backend Development"
+        name: "Scripting Languages",
+        items: ["Bash", "Python", "JavaScript"]
       }
     ]
   },
@@ -110,23 +136,92 @@ const skillData = [
     title: "tools",
     data: [
       {
-        imgPath: "/images/html.png"
+        imgPath: "/images/aws.png",
+        name: "AWS"
       },
       {
-        imgPath: "/images/css.png"
+        imgPath: "/images/huawei.png",
+        name: "Huawei Cloud"
       },
       {
-        imgPath: "/images/js.png"
-      },
-      
-      {
-        imgPath: "/images/java.png"
+        imgPath: "/images/docker.png",
+        name: "Docker"
       },
       {
-        imgPath: "/images/python.png"
+        imgPath: "/images/kubernetes.png",
+        name: "Kubernetes"
       },
       {
-        imgPath: "/images/php.png"
+        imgPath: "/images/jenkins.png",
+        name: "Jenkins"
+      },
+      {
+        imgPath: "/images/terraform.png",
+        name: "Terraform"
+      },
+      {
+        imgPath: "/images/git.png",
+        name: "Git"
+      },      
+      {
+        imgPath: "/images/bash.png",
+        name: "bash"
+      },
+      {
+        imgPath: "/images/github.png",
+        name: "GitHub"
+      },
+      {
+        imgPath: "/images/gitlab.png",
+        name: "GitLab"
+      },
+      {
+        imgPath: "/images/vs-code.png",
+        name: "VS Code"
+      },
+      {
+        imgPath: "/images/grafana.png",
+        name: "Grafana"
+      },
+      {
+        imgPath: "/images/prometheus.png",
+        name: "Prometheus"
+      },
+      {
+        imgPath: "/images/ansible.png",
+        name: "Ansible"
+      },
+      {
+        imgPath: "/images/linux.png",
+        name: "Linux"
+      },
+      {
+        imgPath: "/images/mongodb.png",
+        name: "MongoDB"
+      },
+      {
+        imgPath: "/images/mysql.png",
+        name: "MySQL"
+      },
+      {
+        imgPath: "/images/node-js.png",
+        name: "Node.js"
+      },
+      {
+        imgPath: "/images/dart.png",
+        name: "Dart"
+      },
+      {
+        imgPath: "/images/flutter.png",
+        name: "Flutter"
+      },
+      {
+        imgPath: "/images/arduino.png",
+        name: "Arduino"
+      },
+      {
+        imgPath: "/images/notion.png",
+        name: "Notion"
       }
     ]
   }
@@ -291,57 +386,76 @@ const About = () => {
                 <TabsContent value="skills">
                   <div className="text-center xl:text-left">
                     <h3 className="h3 mb-8">Tools and Technologies I Use</h3>
-                    {/* skill */}
+                    
+                    {/* Skills Section */}
                     <div className="mb-16">
                       <h4 className="text-xl font-semibold mb-2">Skills</h4>
                       <div className="border-b border-border mb-4" />
-                      {/* skill list */}
-                      <div>
-                        {getData(
-                          skillData,
-                          "skills"
-                        ).data.map((item, index) => {
-                          const { name } = item;
-                          return (
-                            <div
-                              className="w-2/4 text-center xl:text-left mx-auto xl:mx-0"
-                              key={index}
-                            >
-                              <div className="font-medium">
-                                {name}
-                              </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {getData(skillData, "skills").data.map((category, index) => (
+                          <div key={index} className="text-center xl:text-left">
+                            <h5 className="font-medium mb-2">{category.name}</h5>
+                            <div className="flex flex-wrap gap-2 justify-center xl:justify-start">
+                              {category.items.map((item, idx) => (
+                                <span key={idx} className="px-3 py-1 bg-primary/10 rounded-full text-sm">
+                                  {item}
+                                </span>
+                              ))}
                             </div>
-                          );
-                        })}
+                          </div>
+                        ))}
                       </div>
                     </div>
-                    {/* tools */}
-                    <div>
-                      <h4 className="text-xl font-semibold mb-2 xl:text-left">
-                        Tools
-                      </h4>
+
+                    {/* Programming Languages Section */}
+                    <div className="mb-16">
+                      <h4 className="text-xl font-semibold mb-2">Programming Languages</h4>
                       <div className="border-b border-border mb-4" />
-                      {/* tool list */}
-                      <div className="flex gap-x-8 justify-center xl:justify-start">
-                        {getData(skillData, "tools").data.map((item, index) => {
-                          const { imgPath } = item;
-                          return (
-                            <div key={index}>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {getData(skillData, "programming").data.map((category, index) => (
+                          <div key={index} className="text-center xl:text-left">
+                            <h5 className="font-medium mb-2">{category.name}</h5>
+                            <div className="flex flex-wrap gap-2 justify-center xl:justify-start">
+                              {category.items.map((item, idx) => (
+                                <span key={idx} className="px-3 py-1 bg-primary/10 rounded-full text-sm">
+                                  {item}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Tools Section */}
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2">Tools & Technologies</h4>
+                      <div className="border-b border-border mb-4" />
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center">
+                        {getData(skillData, "tools").data.map((item, index) => (
+                          <div 
+                            key={index} 
+                            className="flex flex-col items-center gap-2 group hover:scale-110 transition-transform duration-300"
+                          >
+                            <div className="p-2 rounded-lg bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
                               <Image
-                                src={imgPath}
+                                src={item.imgPath}
                                 width={48}
                                 height={48}
-                                alt="tool"
+                                alt={item.name}
                                 priority
+                                className="object-contain"
                               />
                             </div>
-                          );
-                        })}
+                            <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors duration-300">
+                              {item.name}
+                            </span>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </TabsContent>
-                <TabsContent />
               </div>
             </Tabs>
           </div>
