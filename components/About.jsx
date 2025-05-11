@@ -243,7 +243,7 @@ const About = () => {
                       {/* education */}
                       <div className="flex flex-col gap-y-6">
                         <div className="flex gap-x-4 items-center text-[22px] text-primary">
-                          <GraduationCap />
+                          <GraduationCap size={28} />
                           <h4 className="capitalize font-medium">
                             {getData(qualificationData, "education").title}
                           </h4>
