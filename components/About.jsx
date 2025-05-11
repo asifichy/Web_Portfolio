@@ -21,10 +21,10 @@ const infoData = [
     icon: <User2 size={20} />,
     text: "Md. Asif Imtiyaj Chowdhury"
   },
-  {
-    icon: <PhoneCall size={20} />,
-    text: "+8801748298776"
-  },
+  // {
+  //   icon: <PhoneCall size={20} />,
+  //   text: "+8801748298776"
+  // },
   {
     icon: <MailIcon size={20} />,
     text: "asifimtiyajchowdhury@gmail.com"
@@ -132,7 +132,7 @@ const About = () => {
         </h2>
         <div className="flex flex-col xl:flex-row">
           {/* image */}
-          <div>
+          <div className="hidden xl:flex flex-1 relative">
             <DevImg
               containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative"
               imgSrc="/about/self_picture.png"
@@ -141,7 +141,7 @@ const About = () => {
           {/* tabs */}
           <div className="flex-1">
             <Tabs defaultValue="personal">
-              <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none ml-40">
+              <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none">
                 <TabsTrigger className="w-[162px] xl:w-auto" value="personal">
                   Personal Info
                 </TabsTrigger>
@@ -159,7 +159,7 @@ const About = () => {
               <div className="text-lg mt-12 xl:mt-8">
                 {/* persoanl info */}
                 <TabsContent value="personal">
-                  <div className="ml-40">
+                  <div className="text-center xl:text-left">
                     <h3 className="h3 mb-4">Experience of 2 Years</h3>
                     <p className="subtitle max-w-xl max-auto xl:mx-0">
                       I'm expeirenced with Cloud and Devops also in Web
@@ -187,11 +187,11 @@ const About = () => {
                 </TabsContent>
                 {/* qualification info */}
                 <TabsContent value="qualification">
-                  <div className="ml-40">Qualification Info</div>
+                  <div className="text-center xl:text-left">Qualification Info</div>
                 </TabsContent>
                 {/* skill info */}
                 <TabsContent value="skills">
-                  <div className="ml-40">Skills</div>
+                  <div className="text-center xl:text-left">Skills</div>
                 </TabsContent>
                 <TabsContent />
               </div>
