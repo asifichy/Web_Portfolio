@@ -92,7 +92,7 @@ const skillsData = [
         name: "Cloud"
       },
       {
-        name: "HTML, CSS"
+        name: "HTML, CSS, Tailwind"
       },
       {
         name: "Frontend Development"
@@ -225,7 +225,7 @@ const About = () => {
                                 key={index}
                               >
                                 <div className="h-[84px] w-[1px] bg-border relative ml-2">
-                                  <div className="w-[11px] h-[1px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-500" ></div>
+                                  <div className="w-[11px] h-[11px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-500" ></div>
                                 </div>
                                 <div>
                                   <div className="font-semibold text-xl leading-none mb-2">
