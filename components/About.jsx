@@ -58,18 +58,23 @@ const qualificationData = [
     title: "experience",
     data: [
       {
+        company: "SPG Trust",
+        role: "DevOps Engineer",
+        year: "May 2025 - Present"
+      },
+      {
         company: "Flagship Ltd",
-        qualification: "DevOps Engineer",
+        role: "DevOps Engineer",
         year: "Jan 2025 - Present"
       },
       {
         company: "Huawei Technologies",
-        qualification: "Cloud Service Engineer",
+        role: "Cloud Service Engineer",
         year: "Mar 2024 - Dec 2024"
       },
       {
         company: "Hexen",
-        qualification: "Software Engineer Intern (Web)",
+        role: "Software Engineer Intern (Web)",
         year: "Feb 2024 - Mar 2024"
       }
     ]
@@ -193,7 +198,55 @@ const About = () => {
                 </TabsContent>
                 {/* qualification info */}
                 <TabsContent value="qualification">
-                  <div className="text-center xl:text-left">Qualification Info</div>
+                  <div className="text-center xl:text-left">
+                    <h3 className="h3 mb-8 text-center xl:text-left">
+                      My Journey
+                    </h3>
+                    {/* experience and education wrapper */}
+                    <div>
+                      {/* expeirence */}
+                      <div>
+                        <div className="flex gap-x-4 items-center text-[22px] text-primary">
+                          <Briefcase />
+                          <h4 className="capitalize font-medium">
+                            {getData(qualificationData, "experience").title}
+                          </h4>
+                        </div>
+                        {/* list */}
+                        <div className="flex flex-col gap-y-8">
+                          {getData(
+                            qualificationData,
+                            "experience"
+                          ).data.map((item, index) => {
+                            const { company, role, year } = item;
+                            return (
+                              <div
+                                className="flex gap-x-8 group bg-yellow-100"
+                                key={index}
+                              >
+                                <div className="h-[84px] w-[1px] bg-border relative ml-2">
+                                  <div className="w-[11px] h-[1px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-500" />
+                                </div>
+                                <div>
+                                  <div className="font-semibold text-xl leading-none mb-2">
+                                    {company}
+                                  </div>
+                                  <div className="text-lg leading-none text-muted-foreground">
+                                    {role}
+                                  </div>
+                                  <div className="text-base font-medium">
+                                    {year}
+                                  </div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                      {/* education */}
+                      <div>education</div>
+                    </div>
+                  </div>
                 </TabsContent>
                 {/* skill info */}
                 <TabsContent value="skills">
