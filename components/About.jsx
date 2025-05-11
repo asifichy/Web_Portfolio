@@ -183,6 +183,12 @@ const About = () => {
                         );
                       })}
                     </div>
+                    {/* languages */}
+                    {/* <div className="flex flex-col gap-y-2">
+                      <div className="text-primary">Language Skill</div>
+                      <div className="border-b border-border"></div>
+                      <div>English, Bengali</div>
+                    </div> */}
                   </div>
                 </TabsContent>
                 {/* qualification info */}
