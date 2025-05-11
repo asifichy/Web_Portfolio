@@ -15,6 +15,7 @@ import {
   University,
   Table
 } from "lucide-react";
+import { get } from "react-hook-form";
 
 const infoData = [
   {
@@ -81,12 +82,12 @@ const qualificationData = [
   }
 ];
 
-const skillsData = [
+const skillData = [
   {
     title: "skills",
     data: [
       {
-        name: "AWS, Huawei"
+        name: "AWS, Huawei Cloud, GCP"
       },
       {
         name: "Cloud"
@@ -109,16 +110,23 @@ const skillsData = [
     title: "tools",
     data: [
       {
-        imgPath: "/public/images/html.png"
+        imgPath: "/images/html.png"
       },
       {
-        imgPath: "/public/images/css.png"
+        imgPath: "/images/css.png"
       },
       {
-        imgPath: "/public/images/js.png"
+        imgPath: "/images/js.png"
+      },
+      
+      {
+        imgPath: "/images/java.png"
       },
       {
-        imgPath: "/public/images/php.png"
+        imgPath: "/images/python.png"
+      },
+      {
+        imgPath: "/images/php.png"
       }
     ]
   }
@@ -281,7 +289,57 @@ const About = () => {
                 </TabsContent>
                 {/* skill info */}
                 <TabsContent value="skills">
-                  <div className="text-center xl:text-left">Skills</div>
+                  <div className="text-center xl:text-left">
+                    <h3 className="h3 mb-8">Tools and Technologies I Use</h3>
+                    {/* skill */}
+                    <div className="mb-16">
+                      <h4 className="text-xl font-semibold mb-2">Skills</h4>
+                      <div className="border-b border-border mb-4" />
+                      {/* skill list */}
+                      <div>
+                        {getData(
+                          skillData,
+                          "skills"
+                        ).data.map((item, index) => {
+                          const { name } = item;
+                          return (
+                            <div
+                              className="w-2/4 text-center xl:text-left mx-auto xl:mx-0"
+                              key={index}
+                            >
+                              <div className="font-medium">
+                                {name}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                    {/* tools */}
+                    <div>
+                      <h4 className="text-xl font-semibold mb-2 xl:text-left">
+                        Tools
+                      </h4>
+                      <div className="border-b border-border mb-4" />
+                      {/* tool list */}
+                      <div className="flex gap-x-8 justify-center xl:justify-start">
+                        {getData(skillData, "tools").data.map((item, index) => {
+                          const { imgPath } = item;
+                          return (
+                            <div key={index}>
+                              <Image
+                                src={imgPath}
+                                width={48}
+                                height={48}
+                                alt="tool"
+                                priority
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
                 </TabsContent>
                 <TabsContent />
               </div>
