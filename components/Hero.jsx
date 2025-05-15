@@ -6,7 +6,7 @@ import {
   RiBriefcase4Fill,
   RiTeamFill,
   RiTodoFill,
-  RiArrowDownSLine
+  RiArrowDownSLine,
 } from "react-icons/ri";
 
 import DevImg from "./DevImg";
@@ -27,7 +27,11 @@ const Hero = () => {
               Hello, my name is Md. Asif Imtiyaj Chowdhury
             </h1>
             <p className="subtitle max-w-[490px] mx-auto xl:mx-0">
-              Brief description with insights of myself
+              I'm a Cloud & DevOps Engineer specializing in AWS, Huawei, GCP,
+              cloud platforms and container orchestration tools. I build
+              scalable infrastructure with modern IaC tools and automate
+              deployments to help businesses optimize cloud operations and
+              accelerate software delivery.
             </p>
             {/* button */}
             <div className="flex flex-col gap-y-3 md:flex-row gap-x-3 mx-auto xl:mx-0 mb-12">
