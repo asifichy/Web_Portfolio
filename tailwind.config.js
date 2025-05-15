@@ -88,7 +88,9 @@ export default {
         hero_shape2_light: "url(/hero/shape-2-light.svg)",
         hero_shape2_dark: "url(/hero/shape-2-dark.svg)",
         dots_light: "url(/work/dots-light.svg)",
-        dots_dark: "url(/work/dots-dark.svg)"
+        dots_dark: "url(/work/dots-dark.svg)",
+        work_project_bg_light: 'url(/work/project-bg-light.png)',
+        work_project_bg_dark: 'url(/work/project-bg-dark.png)'
       }
     }
   },
