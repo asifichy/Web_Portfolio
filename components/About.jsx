@@ -51,7 +51,7 @@ const qualificationData = [
       {
         university: "East West University",
         degree: "B.Sc in Computer Science and Engineering",
-        year: "2019 - 2023"
+        year: "2023"
       }
     ]
   },
@@ -257,7 +257,7 @@ const About = () => {
                   className="w-[162px] xl:w-auto"
                   value="qualification"
                 >
-                  Qualification
+                  Experience
                 </TabsTrigger>
                 <TabsTrigger className="w-[162px] xl:w-auto" value="skills">
                   Skills
