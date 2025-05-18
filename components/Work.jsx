@@ -18,7 +18,7 @@ import ProjectCard from "@/components/ProjectCard";
 const projectData = [
   {
     image: "/work/3.png",
-    category: "reeact js",
+    category: "fullstack",
     name: "Nexa Website",
     description: "A website for a company that provides services to the public",
     link: "/",
@@ -26,7 +26,7 @@ const projectData = [
   },
   {
     image: "/work/4.png",
-    category: "reeact js",
+    category: "react js",
     name: "Nexa Website",
     description: "A website for a company that provides services to the public",
     link: "/",
@@ -34,7 +34,7 @@ const projectData = [
   },
   {
     image: "/work/1.png",
-    category: "reeact js",
+    category: "react js",
     name: "Nexa Website",
     description: "A website for a company that provides services to the public",
     link: "/",
@@ -42,7 +42,7 @@ const projectData = [
   },
   {
     image: "/work/1.png",
-    category: "reeact js",
+    category: "react js",
     name: "Nexa Website",
     description: "A website for a company that provides services to the public",
     link: "/",
@@ -50,7 +50,7 @@ const projectData = [
   },
   {
     image: "/work/1.png",
-    category: "reeact js",
+    category: "next js",
     name: "Nexa Website",
     description: "A website for a company that provides services to the public",
     link: "/",
