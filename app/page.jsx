@@ -10,6 +10,7 @@ export default function Home() {
       <About />
       <Services />
       <Work />
+      <Reviews />
     </main>
   );
 }
