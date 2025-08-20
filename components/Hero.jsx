@@ -41,7 +41,7 @@ const Hero = () => {
                 </Button>
               </Link>
               <a
-                href="/resume/Flagship_v_Md__Asif_Imtiyaj_Chowdhury_Resume.pdf"
+                href="/resume/Md__Asif_Imtiyaj_Chowdhury_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="gap-x-2"

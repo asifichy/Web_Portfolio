@@ -59,14 +59,14 @@ const qualificationData = [
     title: "experience",
     data: [
       {
-        company: "SPG Trust",
-        role: "DevOps Engineer",
-        year: "May 2025 - Present"
-      },
-      {
-        company: "Flagship Ltd",
+        company: "Flagship Digital Ltd",
         role: "DevOps Engineer",
         year: "Jan 2025 - Present"
+      },
+      {
+        company: "SPG Trust",
+        role: "DevOps Engineer",
+        year: "May 2025 - July 2025"
       },
       {
         company: "Huawei Technologies",
@@ -115,7 +115,7 @@ const skillData = [
       },
       {
         name: "Database",
-        items: ["MySQL", "MongoDB", "SQLite", "Oracle"]
+        items: ["MySQL", "MongoDB", "SQLite", "Oracle", "PostgreSQL"]
       }
     ]
   },
@@ -162,7 +162,7 @@ const skillData = [
       {
         imgPath: "/images/git.png",
         name: "Git"
-      },      
+      },
       {
         imgPath: "/images/bash.png",
         name: "bash"
@@ -386,55 +386,75 @@ const About = () => {
                 <TabsContent value="skills">
                   <div className="text-center xl:text-left">
                     <h3 className="h3 mb-8">Tools and Technologies I Use</h3>
-                    
+
                     {/* Skills Section */}
                     <div className="mb-16">
                       <h4 className="text-xl font-semibold mb-2">Skills</h4>
                       <div className="border-b border-border mb-4" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {getData(skillData, "skills").data.map((category, index) => (
+                        {getData(
+                          skillData,
+                          "skills"
+                        ).data.map((category, index) =>
                           <div key={index} className="text-center xl:text-left">
-                            <h5 className="font-medium mb-2">{category.name}</h5>
+                            <h5 className="font-medium mb-2">
+                              {category.name}
+                            </h5>
                             <div className="flex flex-wrap gap-2 justify-center xl:justify-start">
-                              {category.items.map((item, idx) => (
-                                <span key={idx} className="px-3 py-1 bg-primary/10 rounded-full text-sm">
+                              {category.items.map((item, idx) =>
+                                <span
+                                  key={idx}
+                                  className="px-3 py-1 bg-primary/10 rounded-full text-sm"
+                                >
                                   {item}
                                 </span>
-                              ))}
+                              )}
                             </div>
                           </div>
-                        ))}
+                        )}
                       </div>
                     </div>
 
                     {/* Programming Languages Section */}
                     <div className="mb-16">
-                      <h4 className="text-xl font-semibold mb-2">Programming Languages</h4>
+                      <h4 className="text-xl font-semibold mb-2">
+                        Programming Languages
+                      </h4>
                       <div className="border-b border-border mb-4" />
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {getData(skillData, "programming").data.map((category, index) => (
+                        {getData(
+                          skillData,
+                          "programming"
+                        ).data.map((category, index) =>
                           <div key={index} className="text-center xl:text-left">
-                            <h5 className="font-medium mb-2">{category.name}</h5>
+                            <h5 className="font-medium mb-2">
+                              {category.name}
+                            </h5>
                             <div className="flex flex-wrap gap-2 justify-center xl:justify-start">
-                              {category.items.map((item, idx) => (
-                                <span key={idx} className="px-3 py-1 bg-primary/10 rounded-full text-sm">
+                              {category.items.map((item, idx) =>
+                                <span
+                                  key={idx}
+                                  className="px-3 py-1 bg-primary/10 rounded-full text-sm"
+                                >
                                   {item}
                                 </span>
-                              ))}
+                              )}
                             </div>
                           </div>
-                        ))}
+                        )}
                       </div>
                     </div>
 
                     {/* Tools Section */}
                     <div>
-                      <h4 className="text-xl font-semibold mb-2">Tools & Technologies</h4>
+                      <h4 className="text-xl font-semibold mb-2">
+                        Tools & Technologies
+                      </h4>
                       <div className="border-b border-border mb-4" />
                       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 justify-items-center">
-                        {getData(skillData, "tools").data.map((item, index) => (
-                          <div 
-                            key={index} 
+                        {getData(skillData, "tools").data.map((item, index) =>
+                          <div
+                            key={index}
                             className="flex flex-col items-center gap-2 group hover:scale-110 transition-transform duration-300"
                           >
                             <div className="p-2 rounded-lg bg-primary/5 group-hover:bg-primary/10 transition-colors duration-300">
@@ -451,7 +471,7 @@ const About = () => {
                               {item.name}
                             </span>
                           </div>
-                        ))}
+                        )}
                       </div>
                     </div>
                   </div>
