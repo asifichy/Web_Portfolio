@@ -59,9 +59,14 @@ const qualificationData = [
     title: "experience",
     data: [
       {
+        company: "Huawei Technologies",
+        role: "Cloud Project Configuration Engineer",
+        year: "Dec 2025 - Present"
+      },
+      {
         company: "Flagship Digital Ltd",
         role: "DevOps Engineer",
-        year: "Jan 2025 - Present"
+        year: "Jan 2025 - Dec 2025"
       },
       {
         company: "SPG Trust",
