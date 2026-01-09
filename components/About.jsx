@@ -65,7 +65,7 @@ const qualificationData = [
       },
       {
         company: "Flagship Digital Ltd",
-        role: "DevOps Engineer",
+        role: "Lead DevOps Engineer",
         year: "Jan 2025 - Dec 2025"
       },
       {
