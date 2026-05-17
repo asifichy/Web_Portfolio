@@ -2,12 +2,12 @@
 import DevImg from "./DevImg";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
 
 import {
   User2,
   MailIcon,
-  HomeIcon,
   GraduationCap,
   Briefcase,
   Award,
@@ -18,11 +18,6 @@ import {
   Terminal,
   GitBranch,
 } from "lucide-react";
-
-const fadeIn = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-};
 
 const infoData = [
   {
@@ -38,7 +33,7 @@ const infoData = [
     text: "B.Sc in Computer Science and Engineering"
   },
   {
-    icon: <HomeIcon size={20} />,
+    icon: <User2 size={20} />,
     text: "Dhaka, Bangladesh"
   }
 ];
@@ -93,37 +88,44 @@ const skillData = [
       {
         name: "Cloud Platforms",
         icon: <Cloud size={18} />,
-        items: ["AWS", "Huawei Cloud (HCS, HCSO)", "GCP"]
+        items: ["AWS", "Huawei Cloud (HCS, HCSO)", "GCP"],
+        level: 95
       },
       {
         name: "Infrastructure & DevOps",
         icon: <Server size={18} />,
-        items: ["Linux", "Terraform", "Ansible", "Pulumi", "Docker", "Kubernetes", "CI/CD", "GitOps"]
+        items: ["Linux", "Terraform", "Ansible", "Pulumi", "Docker", "Kubernetes", "CI/CD", "GitOps"],
+        level: 92
       },
       {
         name: "Monitoring & Observability",
         icon: <Award size={18} />,
-        items: ["Grafana", "Prometheus", "Loki", "CloudWatch", "Middleware.io", "Sentry"]
+        items: ["Grafana", "Prometheus", "Loki", "CloudWatch", "Middleware.io", "Sentry"],
+        level: 88
       },
       {
         name: "Web Technologies",
         icon: <Code size={18} />,
-        items: ["ReactJS", "NextJS", "NodeJS", "ExpressJS", "HTML", "CSS"]
+        items: ["ReactJS", "NextJS", "NodeJS", "ExpressJS", "HTML", "CSS"],
+        level: 85
       },
       {
         name: "Databases",
         icon: <Database size={18} />,
-        items: ["PostgreSQL", "MongoDB", "MySQL", "SQLite"]
+        items: ["PostgreSQL", "MongoDB", "MySQL", "SQLite"],
+        level: 82
       },
       {
         name: "Programming & Scripting",
         icon: <Terminal size={18} />,
-        items: ["Python", "Bash", "JavaScript", "Java", "TypeScript", "C", "C++", "PHP", "Dart"]
+        items: ["Python", "Bash", "JavaScript", "Java", "TypeScript", "C", "C++", "PHP", "Dart"],
+        level: 80
       },
       {
         name: "Tools & Project Mgmt",
         icon: <GitBranch size={18} />,
-        items: ["Git", "GitHub", "GitLab", "Agile", "SDLC", "RFP/RFQ Analysis"]
+        items: ["Git", "GitHub", "GitLab", "Agile", "SDLC", "RFP/RFQ Analysis"],
+        level: 90
       }
     ]
   }
@@ -153,22 +155,25 @@ const toolIcons = [
 ];
 
 const About = () => {
+  const [activeTab, setActiveTab] = useState("personal");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const getData = (arr, title) => {
     return arr.find(item => item.title === title);
   };
 
   return (
-    <section className="py-20 xl:py-32 relative overflow-hidden">
+    <section ref={ref} className="py-20 xl:py-32 relative overflow-hidden">
       <div className="absolute top-40 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-40 -right-40 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto relative z-10">
         <motion.h2
           className="section-title mb-8 xl:mb-16 text-center mx-auto"
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           About me
         </motion.h2>
@@ -176,13 +181,21 @@ const About = () => {
         <div className="flex flex-col xl:flex-row gap-12">
           <motion.div
             className="hidden xl:flex flex-1 relative"
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="relative">
-              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/20 rounded-2xl" />
+              <motion.div
+                className="absolute -top-4 -left-4 w-full h-full border-2 border-primary/20 rounded-2xl"
+                animate={{ scale: [1, 1.02, 1] }}
+                transition={{ duration: 4, repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute -bottom-4 -right-4 w-full h-full bg-primary/5 rounded-2xl"
+                animate={{ rotate: [0, 2, 0, -2, 0] }}
+                transition={{ duration: 6, repeat: Infinity }}
+              />
               <DevImg
                 containerStyles="bg-about_shape_light dark:bg-about_shape_dark w-[505px] h-[505px] bg-no-repeat relative"
                 imgSrc="/about/self_picture.png"
@@ -192,12 +205,11 @@ const About = () => {
 
           <motion.div
             className="flex-1"
-            variants={fadeIn}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            initial={{ opacity: 0, x: 50 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <Tabs defaultValue="personal">
+            <Tabs defaultValue="personal" onValueChange={setActiveTab}>
               <TabsList className="w-full grid xl:grid-cols-3 xl:max-w-[520px] xl:border dark:border-none rounded-xl">
                 <TabsTrigger className="w-[162px] xl:w-auto data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg transition-all" value="personal">
                   Personal Info
@@ -213,17 +225,34 @@ const About = () => {
               <div className="text-lg mt-12 xl:mt-8">
                 <TabsContent value="personal">
                   <div className="text-center xl:text-left">
-                    <h3 className="h3 mb-4">Cloud Solution Architect</h3>
-                    <p className="subtitle max-w-xl mx-auto xl:mx-0">
-                      Cloud and DevOps Solutions Architect specializing in enterprise multi-cloud design, 
+                    <motion.h3
+                      className="h3 mb-4"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={activeTab === "personal" ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    >
+                      Cloud Solution Architect
+                    </motion.h3>
+                    <motion.p
+                      className="subtitle max-w-xl mx-auto xl:mx-0"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={activeTab === "personal" ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    >
+                      Cloud and DevOps Solutions Architect specializing in enterprise multi-cloud design,
                       pre-sales technical strategy, and automated infrastructure governance.
-                    </p>
+                    </motion.p>
                     <div className="grid xl:grid-cols-2 gap-4 mb-12">
                       {infoData.map((item, index) => (
-                        <div className="flex items-center gap-x-4 mx-auto xl:mx-0 glass rounded-xl p-4" key={index}>
+                        <motion.div
+                          className="flex items-center gap-x-4 mx-auto xl:mx-0 glass rounded-xl p-4 border border-border/50"
+                          key={index}
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={activeTab === "personal" ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                          transition={{ delay: index * 0.1 }}
+                          whileHover={{ scale: 1.02, borderColor: "hsl(var(--primary) / 0.3)" }}
+                        >
                           <div className="text-primary p-2 bg-primary/10 rounded-lg">{item.icon}</div>
                           <div className="font-medium">{item.text}</div>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                   </div>
@@ -231,7 +260,13 @@ const About = () => {
 
                 <TabsContent value="qualification">
                   <div className="text-center xl:text-left">
-                    <h3 className="h3 mb-8 text-center xl:text-left">My Journey</h3>
+                    <motion.h3
+                      className="h3 mb-8 text-center xl:text-left"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={activeTab === "qualification" ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    >
+                      My Journey
+                    </motion.h3>
                     <div className="grid md:grid-cols-2 gap-y-8">
                       <div>
                         <div className="flex gap-x-4 items-center text-[22px] text-primary mb-6">
@@ -245,13 +280,16 @@ const About = () => {
                               <motion.div
                                 className="flex gap-x-8 group"
                                 key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
+                                initial={{ opacity: 0, x: -30 }}
+                                animate={activeTab === "qualification" ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
                                 transition={{ delay: index * 0.1 }}
+                                whileHover={{ x: 5 }}
                               >
                                 <div className="h-[100px] w-[2px] bg-border relative ml-2">
-                                  <div className="w-[12px] h-[12px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[100px] transition-all duration-700" />
+                                  <motion.div
+                                    className="w-[12px] h-[12px] rounded-full bg-primary absolute -left-[5px]"
+                                    whileHover={{ scale: 1.5 }}
+                                  />
                                 </div>
                                 <div>
                                   <div className="font-semibold text-xl leading-none mb-1">{company}</div>
@@ -275,13 +313,16 @@ const About = () => {
                               <motion.div
                                 className="flex gap-x-8 group"
                                 key={index}
-                                initial={{ opacity: 0, x: -20 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
+                                initial={{ opacity: 0, x: -30 }}
+                                animate={activeTab === "qualification" ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                                transition={{ delay: index * 0.1 + 0.5 }}
+                                whileHover={{ x: 5 }}
                               >
                                 <div className="h-[84px] w-[2px] bg-border relative ml-2">
-                                  <div className="w-[12px] h-[12px] rounded-full bg-primary absolute -left-[5px] group-hover:translate-y-[84px] transition-all duration-700" />
+                                  <motion.div
+                                    className="w-[12px] h-[12px] rounded-full bg-primary absolute -left-[5px]"
+                                    whileHover={{ scale: 1.5 }}
+                                  />
                                 </div>
                                 <div>
                                   <div className="font-semibold text-xl leading-none mb-1">{university}</div>
@@ -299,21 +340,38 @@ const About = () => {
 
                 <TabsContent value="skills">
                   <div>
-                    <h3 className="h3 mb-8 text-center xl:text-left">Tools & Technologies I Use</h3>
+                    <motion.h3
+                      className="h3 mb-8 text-center xl:text-left"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={activeTab === "skills" ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    >
+                      Tools & Technologies I Use
+                    </motion.h3>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
                       {getData(skillData, "skills").data.map((category, index) => (
                         <motion.div
                           key={index}
-                          className="glass rounded-xl p-5"
-                          initial={{ opacity: 0, y: 20 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: index * 0.05 }}
+                          className="glass rounded-xl p-5 border border-border/50"
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={activeTab === "skills" ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                          transition={{ delay: index * 0.1 }}
+                          whileHover={{ scale: 1.02, borderColor: "hsl(var(--primary) / 0.3)" }}
                         >
-                          <div className="flex items-center gap-2 text-primary mb-3">
-                            {category.icon}
-                            <h5 className="font-semibold text-foreground">{category.name}</h5>
+                          <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center gap-2 text-primary">
+                              {category.icon}
+                              <h5 className="font-semibold text-foreground">{category.name}</h5>
+                            </div>
+                            <span className="text-sm font-medium text-primary">{category.level}%</span>
+                          </div>
+                          <div className="w-full h-2 bg-muted rounded-full mb-3 overflow-hidden">
+                            <motion.div
+                              className="h-full bg-gradient-to-r from-primary to-orange-500 rounded-full"
+                              initial={{ width: 0 }}
+                              animate={activeTab === "skills" ? { width: `${category.level}%` } : { width: 0 }}
+                              transition={{ duration: 1, delay: index * 0.1 + 0.3, ease: "easeOut" }}
+                            />
                           </div>
                           <div className="flex flex-wrap gap-2">
                             {category.items.map((item, idx) => (
@@ -335,12 +393,11 @@ const About = () => {
                         {toolIcons.map((item, index) => (
                           <motion.div
                             key={index}
-                            className="flex flex-col items-center gap-2 p-3 glass rounded-xl hover:bg-primary/5 transition-all duration-300 group cursor-default"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.03 }}
-                            whileHover={{ y: -5 }}
+                            className="flex flex-col items-center gap-2 p-3 glass rounded-xl border border-border/50 hover:border-primary/30 transition-all duration-300 group cursor-default"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={activeTab === "skills" ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                            transition={{ delay: index * 0.05 }}
+                            whileHover={{ y: -8, scale: 1.05 }}
                           >
                             <div className="p-2 rounded-lg bg-primary/5 group-hover:bg-primary/10 transition-colors">
                               <Image
