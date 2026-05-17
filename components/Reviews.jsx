@@ -31,7 +31,7 @@ const testimonialsData = [
     name: "Flagship Digital Ltd",
     role: "Engineering Team Lead",
     review:
-      "Asif mentored our team of 6 engineers on cloud-native patterns and DevOps best practices. He reduced our cloud spend by 30% while improving uptime to 99.99%. His observability setup with Grafana, Prometheus, and Loki cut our incident detection time by 50%.",
+      "Asif mentored our team of 6 engineers on cloud-native patterns and DevOps best practices. He reduced our cloud spend by 30% while improving uptime to 99.99%. His project leadership and observability setup cut our incident detection time by 50%.",
     rating: 5,
   },
   {
@@ -40,6 +40,14 @@ const testimonialsData = [
     role: "Infrastructure Partner",
     review:
       "Asif's consulting work on our Redis caching infrastructure was transformative. He resolved critical cache stampede issues, reduced backend API failure rates by 45%, and established robust IaC practices that enabled zero-downtime deployments.",
+    rating: 5,
+  },
+  {
+    avatar: "/reviews/avatar-6.png",
+    name: "Enterprise Client",
+    role: "Cloud Migration Project",
+    review:
+      "Asif led our enterprise cloud migration project with exceptional project management skills. He coordinated across multiple teams, managed stakeholder expectations, and delivered the migration on time with zero downtime. His technical documentation and RFP analysis were outstanding.",
     rating: 5,
   },
 ];
