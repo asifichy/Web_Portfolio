@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import ProjectCard from "@/components/ProjectCard";
+import { useRef } from "react";
 
 const projectData = [
   {
@@ -64,6 +65,9 @@ const uniqueCategories = [
 const Projects = () => {
   const [categories] = useState(uniqueCategories);
   const [category, setCategory] = useState("all projects");
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const filteredProjects = projectData.filter((project) => {
     if (category === "all projects") {
       return project;
@@ -78,36 +82,39 @@ const Projects = () => {
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto relative z-10">
-        <motion.h2
-          className="section-title mb-8 xl:mb-16 text-center mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8 }}
         >
-          My Projects
-        </motion.h2>
-        <motion.p
-          className="subtitle text-center max-w-xl mx-auto mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          Real-world cloud infrastructure and DevOps projects I&apos;ve designed, architected, and deployed.
-        </motion.p>
+          <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto">
+            My Projects
+          </h2>
+          <p className="subtitle text-center max-w-xl mx-auto mb-12">
+            Real-world cloud infrastructure and DevOps projects I've designed, architected, and deployed.
+          </p>
+        </motion.div>
 
         <Tabs defaultValue={category} className="mb-24 xl:mb-48">
-          <TabsList className="w-full grid h-full md:grid-cols-4 lg:max-w-[640px] mb-12 mx-auto md:border dark:border-none rounded-xl">
-            {categories.map((cat, index) => (
-              <TabsTrigger
-                onClick={() => setCategory(cat)}
-                key={index}
-                value={cat}
-                className="capitalize w-[162px] md:w-auto data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg transition-all"
-              >
-                {cat}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ delay: 0.2 }}
+          >
+            <TabsList className="w-full grid h-full md:grid-cols-4 lg:max-w-[640px] mb-12 mx-auto md:border dark:border-none rounded-xl">
+              {categories.map((cat, index) => (
+                <TabsTrigger
+                  onClick={() => setCategory(cat)}
+                  key={index}
+                  value={cat}
+                  className="capitalize w-[162px] md:w-auto data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-lg transition-all"
+                >
+                  {cat}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+          </motion.div>
 
           <motion.div
             className="grid grid-cols-1 lg:grid-cols-3 gap-6"
@@ -116,9 +123,10 @@ const Projects = () => {
             {filteredProjects.map((project, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05 }}
+                initial={{ opacity: 0, y: 50, rotateX: 10 }}
+                animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                exit={{ opacity: 0, y: -50 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
                 layout
               >
                 <TabsContent value={category} className="mt-0">
