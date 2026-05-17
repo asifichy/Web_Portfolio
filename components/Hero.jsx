@@ -19,6 +19,7 @@ const floatingIcons = [
 const roles = [
   "Cloud Solution Architect",
   "DevOps Engineer",
+  "Project & Product Manager",
   "Infrastructure Automation Expert",
   "Multi-Cloud Strategist"
 ];
@@ -151,9 +152,9 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             >
-              Cloud Solution Architect specializing in multi-cloud design,
+              Cloud Solution Architect & Project Manager specializing in multi-cloud design,
               automated infrastructure governance, and DevOps transformation.
-              I architect scalable systems that drive business velocity.
+              I lead cross-functional teams to architect scalable systems that drive business velocity.
             </motion.p>
 
             <motion.div
