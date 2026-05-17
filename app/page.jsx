@@ -1,6 +1,5 @@
 "use client";
 import { motion, useInView } from "framer-motion";
-import { Cloud, Server, GitBranch, FileText, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import About from "@/components/About";
 import Hero from "@/components/Hero";
@@ -10,17 +9,12 @@ import Reviews from "@/components/Reviews";
 import CTA from "@/components/CTA";
 import { useRef } from "react";
 
-const stats = [
-  { icon: <Cloud size={28} />, value: "3", label: "Cloud Platforms", desc: "AWS, Huawei, GCP" },
-  { icon: <Server size={28} />, value: "5+", label: "Enterprise Deployments", desc: "Production-grade" },
-  { icon: <GitBranch size={28} />, value: "99.99%", label: "Uptime Achieved", desc: "Infrastructure reliability" },
-  { icon: <FileText size={28} />, value: "5", label: "Tech Docs Published", desc: "Knowledge sharing" },
-];
-
 const documentationLinks = [
   { title: "Huawei Cloud with Terraform", desc: "Provisioning guide for enterprise Huawei Cloud resources", link: "/" },
   { title: "Complete Docker Learnings", desc: "Comprehensive guide covering Docker from basics to production", link: "/" },
   { title: "Essential Linux Commands", desc: "Every DevOps engineer's command reference guide", link: "/" },
+  { title: "Cloud Project Management", desc: "Best practices for managing enterprise cloud migration projects", link: "/" },
+  { title: "Agile DevOps Workflows", desc: "Implementing Agile methodologies in DevOps team environments", link: "/" },
 ];
 
 export default function Home() {
@@ -30,17 +24,25 @@ export default function Home() {
   const docsRef = useRef(null);
   const isDocsInView = useInView(docsRef, { once: true, margin: "-100px" });
 
+  const stats = [
+    { icon: "☁️", value: "3", label: "Cloud Platforms", desc: "AWS, Huawei, GCP" },
+    { icon: "🖥️", value: "5+", label: "Enterprise Deployments", desc: "Production-grade" },
+    { icon: "🌿", value: "99.99%", label: "Uptime Achieved", desc: "Infrastructure reliability" },
+    { icon: "👥", value: "6+", label: "Teams Led", desc: "Cross-functional leadership" },
+    { icon: "🏆", value: "30%", label: "Cost Reduction", desc: "Cloud spend optimization" },
+    { icon: "📄", value: "5", label: "Tech Docs Published", desc: "Knowledge sharing" },
+  ];
+
   return (
     <main>
       <Hero />
       <About />
       <Services />
 
-      {/* Stats Section */}
       <section ref={statsRef} className="py-16 xl:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-orange-500/5" />
         <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
@@ -53,8 +55,8 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <div className="relative z-10">
                   <motion.div
-                    className="text-primary mb-3 flex justify-center"
-                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    className="text-4xl mb-3"
+                    whileHover={{ scale: 1.2 }}
                     transition={{ duration: 0.5 }}
                   >
                     {stat.icon}
@@ -76,7 +78,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Documentation Section */}
       <section ref={docsRef} className="py-16 xl:py-24">
         <div className="container mx-auto">
           <motion.h2
@@ -96,7 +97,7 @@ export default function Home() {
             I believe in sharing knowledge. Here are technical guides I've created
             to help the DevOps community.
           </motion.p>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
             {documentationLinks.map((doc, i) => (
               <motion.div
                 key={i}
@@ -113,11 +114,11 @@ export default function Home() {
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <FileText size={20} />
+                    📄
                   </motion.div>
                   <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                     {doc.title}
-                    <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                    <span className="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
                   </h3>
                   <p className="text-sm text-muted-foreground">{doc.desc}</p>
                 </div>
