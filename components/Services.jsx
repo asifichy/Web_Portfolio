@@ -1,5 +1,5 @@
 "use client";
-import { Terminal, Cloud, Code, ArrowRight, Zap, Shield, Layers } from "lucide-react";
+import { Terminal, Cloud, Code, ArrowRight, Zap, Shield, Layers, Trophy } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef, useState } from "react";
@@ -32,6 +32,14 @@ const servicesData = [
     highlights: ["React & Next.js", "Full-Stack Development", "Performance Optimization"],
     gradient: "from-orange-500/20 to-red-500/20"
   },
+  {
+    icon: <Trophy size={48} strokeWidth={1.2} />,
+    title: "Project & Product Management",
+    description:
+      "Lead cross-functional teams, manage enterprise cloud migrations, and drive product strategy. Expertise in Agile, stakeholder management, RFP/RFQ analysis, and technical documentation.",
+    highlights: ["Agile & Scrum", "Team Leadership", "Product Strategy"],
+    gradient: "from-green-500/20 to-emerald-500/20"
+  },
 ];
 
 const Services = () => {
@@ -52,7 +60,7 @@ const Services = () => {
           My Services
         </motion.h2>
 
-        <div className="grid xl:grid-cols-3 gap-8">
+        <div className="grid xl:grid-cols-4 gap-8">
           {servicesData.map((item, index) => (
             <ServiceCard key={index} item={item} index={index} isInView={isInView} />
           ))}
