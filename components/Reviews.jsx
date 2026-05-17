@@ -1,65 +1,60 @@
 "use client";
 
-import Image from "next/image";
-
-import { Pagination } from "swiper/modules";
-
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+import { Quote } from "lucide-react";
 
-const reviewsData = [
+const testimonialsData = [
   {
     avatar: "/reviews/avatar-1.png",
-    name: "John Doe",
+    name: "Tahmid Majid",
+    role: "Chief Product Officer, Co-founder @ Flagship Digital Ltd",
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    rating: 5,
+      "Asif architected our entire AWS infrastructure from the ground up — EKS clusters, DocumentDB, and CI/CD pipelines. His deep understanding of cloud-native patterns and GitOps workflows transformed our deployment velocity. A true cloud architect who delivers results.",
   },
   {
     avatar: "/reviews/avatar-2.png",
-    name: "Jane Doe",
+    name: "Md. Minhaz Uddin",
+    role: "Cloud Solution Architect @ Huawei Technologies",
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    rating: 4,
-  },
-  {
-    avatar: "/reviews/avatar-3.png",
-    name: "John Doe",
-    review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    rating: 3.5,
+      "Working alongside Asif at Huawei was exceptional. His ability to design complex multi-cloud architectures for enterprise tenders and his technical depth in Terraform and Kubernetes made him invaluable to our pre-sales team.",
   },
   {
     avatar: "/reviews/avatar-4.png",
-    name: "John Doe",
+    name: "Flagship Digital Ltd",
+    role: "Engineering Team Lead",
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    rating: 4,
+      "Asif mentored our team of 6 engineers on cloud-native patterns and DevOps best practices. He reduced our cloud spend by 30% while improving uptime to 99.99%. His observability setup with Grafana, Prometheus, and Loki cut our incident detection time by 50%.",
   },
   {
     avatar: "/reviews/avatar-5.png",
-    name: "John Doe",
+    name: "SPG Trust",
+    role: "Infrastructure Partner",
     review:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    rating: 5,
+      "Asif's consulting work on our Redis caching infrastructure was transformative. He resolved critical cache stampede issues, reduced backend API failure rates by 45%, and established robust IaC practices that enabled zero-downtime deployments.",
   },
 ];
 
 const Reviews = () => {
   return (
-    <section className="mb-12 xl:mb-32">
-      <div className="container mx-auto">
-        <h2 className="section-title mb-12 text-center mx-auto">Reviews</h2>
-        {/* slider */}
+    <section className="py-20 xl:py-32 relative overflow-hidden">
+      <div className="absolute top-1/2 -left-40 w-80 h-80 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/2 -right-40 w-80 h-80 bg-orange-500/5 rounded-full blur-3xl" />
+
+      <div className="container mx-auto relative z-10">
+        <motion.h2
+          className="section-title mb-16 text-center mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Testimonials
+        </motion.h2>
+
         <Swiper
           slidesPerView={1}
           breakpoints={{
@@ -69,41 +64,34 @@ const Reviews = () => {
           spaceBetween={30}
           modules={[Pagination]}
           pagination={{ clickable: true }}
-          className="h-[350px]"
+          className="pb-14"
         >
-          {reviewsData.map((person, index) => {
-            return (
-              <SwiperSlide key={index}>
-                <Card className="bg-tertiary dark:bg-secondary/40 p-8 min-h-[30 0px]">
-                  <CardHeader className="p-0 mb-10 flex items-center gap-x-4">
-                    {/* image */}
-                    <Image
-                      src={person.avatar}
-                      alt={person.name}
-                      width={70}
-                      height={70}
-                      className="rounded-full"
-                    />
-                    {/* name */}
-                    <div className="flex flex-col">
-                      <CardTitle>{person.name}</CardTitle>
-                      <p>{person.job}</p>
-                      <div className="flex gap-1">
-                        {[...Array(5)].map((_, i) => (
-                          <span key={i} className="text-yellow-400">
-                            {i < Math.floor(person.rating) ? "★" : "☆"}
-                          </span>
-                        ))}
-                      </div>
+          {testimonialsData.map((person, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="glass rounded-2xl p-8 h-full border border-border/50 hover:border-primary/20 transition-all duration-300 group">
+                  <Quote size={32} className="text-primary/30 mb-4" />
+                  <p className="text-muted-foreground leading-relaxed mb-8 text-[15px]">
+                    &ldquo;{person.review}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-x-4 pt-4 border-t border-border/50">
+                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-lg">
+                      {person.name.charAt(0)}
                     </div>
-                  </CardHeader>
-                  <CardDescription className="text-lg">
-                    {person.review}
-                  </CardDescription>
-                </Card>
-              </SwiperSlide>
-            );
-          })}
+                    <div>
+                      <div className="font-semibold text-sm">{person.name}</div>
+                      <div className="text-xs text-muted-foreground">{person.role}</div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </section>
