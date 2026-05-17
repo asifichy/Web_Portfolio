@@ -7,39 +7,34 @@ import {
   RiGitlabFill,
   RiTwitterFill,
   RiMediumFill,
-  RiNotionFill,
 } from 'react-icons/ri';
 
 import Link from "next/link";
 
 const icons = [
   {
-    path: "/",
+    path: "https://linkedin.com/in/asifimtiyaj",
     name: <RiLinkedinFill />
   },
   {
-    path: "/",
+    path: "https://github.com/asifimtiyaj",
     name: <RiGithubFill />
   },
   {
-    path: "/",
+    path: "https://gitlab.com/asifimtiyaj",
     name: <RiGitlabFill />
   },
   {
-    path: "/",
+    path: "https://facebook.com/asifimtiyaj",
     name: <RiFacebookFill />
   },
   {
-    path: "/",
+    path: "https://twitter.com/asifimtiyaj",
     name: <RiTwitterFill />
   },
   {
-    path: "/",
+    path: "https://medium.com/@asifimtiyajchowdhury",
     name: <RiMediumFill />
-  },
-  {
-    path: "/",
-    name: <RiNotionFill />
   },
 ];
 
@@ -50,7 +45,10 @@ const Socials = ({ containerStyles, iconsStyles }) => {
         return (
           <Link
             href={icon.path}
-            key={index}>
+            target="_blank"
+            rel="noopener noreferrer"
+            key={index}
+          >
             <div className={`${iconsStyles}`}>{icon.name}</div>
           </Link>
         );
