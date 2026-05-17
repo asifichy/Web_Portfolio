@@ -10,6 +10,7 @@ import {
 } from 'react-icons/ri';
 
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const icons = [
   {
@@ -43,14 +44,19 @@ const Socials = ({ containerStyles, iconsStyles }) => {
     <div className={`${containerStyles}`}>
       {icons.map((icon, index) => {
         return (
-          <Link
-            href={icon.path}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             key={index}
+            whileHover={{ y: -5, scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
           >
-            <div className={`${iconsStyles}`}>{icon.name}</div>
-          </Link>
+            <Link
+              href={icon.path}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className={`${iconsStyles}`}>{icon.name}</div>
+            </Link>
+          </motion.div>
         );
       })}
     </div>
