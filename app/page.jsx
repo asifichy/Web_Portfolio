@@ -1,6 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
-import { Cloud, Server, GitBranch, FileText } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { Cloud, Server, GitBranch, FileText, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import About from "@/components/About";
 import Hero from "@/components/Hero";
@@ -8,6 +8,7 @@ import Services from "@/components/Services";
 import Work from "@/components/Work";
 import Reviews from "@/components/Reviews";
 import CTA from "@/components/CTA";
+import { useRef } from "react";
 
 const stats = [
   { icon: <Cloud size={28} />, value: "3", label: "Cloud Platforms", desc: "AWS, Huawei, GCP" },
@@ -23,6 +24,12 @@ const documentationLinks = [
 ];
 
 export default function Home() {
+  const statsRef = useRef(null);
+  const isStatsInView = useInView(statsRef, { once: true, margin: "-100px" });
+
+  const docsRef = useRef(null);
+  const isDocsInView = useInView(docsRef, { once: true, margin: "-100px" });
+
   return (
     <main>
       <Hero />
@@ -30,26 +37,39 @@ export default function Home() {
       <Services />
 
       {/* Stats Section */}
-      <section className="py-16 xl:py-24 relative overflow-hidden">
+      <section ref={statsRef} className="py-16 xl:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-orange-500/5" />
         <div className="container mx-auto relative z-10">
           <div className="grid grid-cols-2 xl:grid-cols-4 gap-6">
             {stats.map((stat, i) => (
               <motion.div
                 key={i}
-                className="glass rounded-2xl p-6 text-center border border-border/50 hover:border-primary/30 transition-all duration-300 group"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -5 }}
+                className="glass rounded-2xl p-6 text-center border border-border/50 hover:border-primary/30 transition-all duration-300 group relative overflow-hidden"
+                initial={{ opacity: 0, y: 50, rotateX: 15 }}
+                animate={isStatsInView ? { opacity: 1, y: 0, rotateX: 0 } : { opacity: 0, y: 50, rotateX: 15 }}
+                transition={{ delay: i * 0.15, duration: 0.8 }}
+                whileHover={{ y: -10, scale: 1.02 }}
               >
-                <div className="text-primary mb-3 flex justify-center group-hover:scale-110 transition-transform duration-300">
-                  {stat.icon}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <motion.div
+                    className="text-primary mb-3 flex justify-center"
+                    whileHover={{ scale: 1.2, rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    {stat.icon}
+                  </motion.div>
+                  <motion.div
+                    className="text-3xl xl:text-4xl font-bold text-gradient mb-1"
+                    initial={{ scale: 0 }}
+                    animate={isStatsInView ? { scale: 1 } : { scale: 0 }}
+                    transition={{ delay: i * 0.15 + 0.3, type: "spring" }}
+                  >
+                    {stat.value}
+                  </motion.div>
+                  <div className="font-semibold text-sm mb-1">{stat.label}</div>
+                  <div className="text-xs text-muted-foreground">{stat.desc}</div>
                 </div>
-                <div className="text-3xl xl:text-4xl font-bold text-gradient mb-1">{stat.value}</div>
-                <div className="font-semibold text-sm mb-1">{stat.label}</div>
-                <div className="text-xs text-muted-foreground">{stat.desc}</div>
               </motion.div>
             ))}
           </div>
@@ -57,36 +77,50 @@ export default function Home() {
       </section>
 
       {/* Documentation Section */}
-      <section className="py-16 xl:py-24">
+      <section ref={docsRef} className="py-16 xl:py-24">
         <div className="container mx-auto">
           <motion.h2
             className="section-title mb-12 text-center mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 50 }}
+            animate={isDocsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8 }}
           >
             Documentation & Knowledge
           </motion.h2>
-          <p className="subtitle text-center max-w-xl mx-auto mb-12">
-            I believe in sharing knowledge. Here are technical guides I&apos;ve created 
+          <motion.p
+            className="subtitle text-center max-w-xl mx-auto mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isDocsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ delay: 0.2 }}
+          >
+            I believe in sharing knowledge. Here are technical guides I've created
             to help the DevOps community.
-          </p>
+          </motion.p>
           <div className="grid md:grid-cols-3 gap-6">
             {documentationLinks.map((doc, i) => (
               <motion.div
                 key={i}
-                className="glass rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-300 group cursor-pointer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -5 }}
+                className="glass rounded-xl p-6 border border-border/50 hover:border-primary/30 transition-all duration-300 group cursor-pointer relative overflow-hidden"
+                initial={{ opacity: 0, y: 50 }}
+                animate={isDocsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ delay: i * 0.15 + 0.3 }}
+                whileHover={{ y: -10 }}
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
-                  <FileText size={20} />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <motion.div
+                    className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <FileText size={20} />
+                  </motion.div>
+                  <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                    {doc.title}
+                    <ArrowUpRight size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{doc.desc}</p>
                 </div>
-                <h3 className="font-semibold mb-2 group-hover:text-primary transition-colors">{doc.title}</h3>
-                <p className="text-sm text-muted-foreground">{doc.desc}</p>
               </motion.div>
             ))}
           </div>
