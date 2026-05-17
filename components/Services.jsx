@@ -1,61 +1,96 @@
-import { Terminal, Cloud, Code } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+"use client";
+import { Terminal, Cloud, Code, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const servicesData = [
   {
-    icon: <Cloud size={72} strokeWidth={0.8} />,
+    icon: <Cloud size={48} strokeWidth={1.2} />,
     title: "Cloud Infrastructure",
     description:
-      "I design and implement scalable cloud solutions that enhance system reliability, optimize performance, and reduce operational costs for businesses of all sizes.",
+      "Design and implement scalable multi-cloud solutions on AWS, Huawei Cloud, and GCP. Enterprise-grade architectures with high availability, disaster recovery, and FinOps optimization.",
+    highlights: ["Multi-cloud Architecture", "High Availability", "Cost Optimization"]
   },
   {
-    icon: <Terminal size={72} strokeWidth={0.8} />,
+    icon: <Terminal size={48} strokeWidth={1.2} />,
     title: "DevOps Engineering",
     description:
-      "I streamline your development pipeline with automated CI/CD processes, containerization, and infrastructure as code to accelerate delivery and improve software quality.",
+      "End-to-end CI/CD pipelines, GitOps workflows, containerization with Docker & Kubernetes, and Infrastructure as Code using Terraform, Ansible, and Pulumi.",
+    highlights: ["CI/CD & GitOps", "Container Orchestration", "Infrastructure as Code"]
   },
   {
-    icon: <Code size={72} strokeWidth={0.8} />,
+    icon: <Code size={48} strokeWidth={1.2} />,
     title: "Web Development",
     description:
-      "I build modern, responsive web applications using React, Next.js, and other cutting-edge frontend tools, while implementing robust backend solutions with Node.js and Nest.js to create fast, secure, and scalable digital experiences.",
+      "Modern full-stack applications with React, Next.js, Node.js, and Express.js. Performance-optimized with SSR, code-splitting, and responsive design patterns.",
+    highlights: ["React & Next.js", "Full-Stack Development", "Performance Optimization"]
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
 const Services = () => {
   return (
-    <section className="mt-10 xl:mt-20 mb-12 xl:mb-36">
-      <div className="container mx-auto">
-        <h2 className="section-title mb-12 xl:mb-24 text-center mx-auto">
+    <section className="py-20 xl:py-32 relative overflow-hidden">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/3 rounded-full blur-3xl" />
+
+      <div className="container mx-auto relative z-10">
+        <motion.h2
+          className="section-title mb-16 xl:mb-24 text-center mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
           My Services
-        </h2>
-        {/* grid items */}
-        <div className="grid xl:grid-cols-3 justify-center gap-y-12 xl:gap-y-24 xl:gap-x-8">
-          {servicesData.map((item, index) => {
-            return (
-              <Card
-                className="w-full max-w-[424px] h-[300px] flex flex-col pt-16 pb-10 justify-center items-center relative"
-                key={index}
-              >
-                <CardHeader className="text-primary absolute -top-[60px]">
-                  <div className="w-[140px] h-[80px] bg-white  dark:bg-background flex justify-center items-center">
-                    {item.icon}
-                  </div>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <CardTitle className="mb-4">{item.title}</CardTitle>
-                  <CardDescription className='text-lg'>{item.description}</CardDescription>
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
+        </motion.h2>
+
+        <motion.div
+          className="grid xl:grid-cols-3 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {servicesData.map((item, index) => (
+            <motion.div
+              key={index}
+              className="group relative"
+              variants={cardVariants}
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative glass rounded-2xl p-8 h-full flex flex-col border border-border/50 hover:border-primary/30 transition-all duration-500 group-hover:-translate-y-2">
+                <div className="w-16 h-16 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110">
+                  {item.icon}
+                </div>
+                <h3 className="text-2xl font-bold mb-4">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-1">
+                  {item.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {item.highlights.map((h, i) => (
+                    <span key={i} className="px-3 py-1 text-xs font-medium bg-primary/5 text-primary rounded-full">
+                      {h}
+                    </span>
+                  ))}
+                </div>
+                <Link href="/contact" className="inline-flex items-center gap-2 text-primary font-medium text-sm group/link">
+                  Learn More <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
