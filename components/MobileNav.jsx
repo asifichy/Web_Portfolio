@@ -1,5 +1,6 @@
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { AlignJustify } from "lucide-react";
+import { motion } from "framer-motion";
 
 import Nav from "./Nav";
 import Logo from "./Logo";
@@ -9,7 +10,9 @@ const MobileNav = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <AlignJustify className="cursor-pointer" />
+        <motion.div whileTap={{ scale: 0.9 }}>
+          <AlignJustify className="cursor-pointer" />
+        </motion.div>
       </SheetTrigger>
       <SheetContent>
         <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
